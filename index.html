@@ -3,18 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vivid Artistry</title>
+    <title>VIVIAN STUDIO — Digital Collections</title>
     <style>
-        body { font-family: system-ui, sans-serif; max-width: 600px; margin: 80px auto; padding: 0 20px; text-align: center; color: #333; }
-        h1 { font-size: 2.5em; font-weight: 300; letter-spacing: 3px; margin-bottom: 20px; }
-        p { color: #666; line-height: 1.8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, 'Helvetica Neue', 'Inter', sans-serif;
+            background: #08080c;
+            color: #f0ece4;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            max-width: 520px;
+            width: 100%;
+            padding: 60px 24px 40px;
+            text-align: center;
+        }
+        .brand {
+            font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+            font-size: 13px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #d4a84b;
+            margin-bottom: 8px;
+        }
+        h1 {
+            font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #888899;
+            line-height: 1.6;
+            margin-bottom: 48px;
+        }
+        .lang-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 48px;
+        }
+        .lang-btn {
+            display: block;
+            padding: 18px 24px;
+            border: 1px solid #2a2a3a;
+            border-radius: 2px;
+            background: transparent;
+            color: #f0ece4;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.08em;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .lang-btn:hover {
+            border-color: #d4a84b;
+            background: rgba(212, 168, 75, 0.06);
+        }
+        .lang-btn .label {
+            font-size: 18px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 4px;
+        }
+        .lang-btn .desc {
+            font-size: 11px;
+            color: #888899;
+        }
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: #2a2a3a;
+            margin: 0 auto 32px;
+        }
+        .bot-link {
+            display: inline-block;
+            font-size: 12px;
+            color: #888899;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            border: 1px solid #2a2a3a;
+            padding: 10px 24px;
+            border-radius: 2px;
+            transition: all 0.2s;
+        }
+        .bot-link:hover {
+            border-color: #d4a84b;
+            color: #d4a84b;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 10px;
+            color: #555566;
+            letter-spacing: 0.1em;
+        }
+        @media (max-width: 480px) {
+            .container { padding: 40px 20px 32px; }
+            h1 { font-size: 26px; }
+            .lang-btn { padding: 16px 20px; }
+        }
     </style>
 </head>
 <body>
-    <h1>Vivid Artistry</h1>
-    <p>Premium Photography & Visual Design Studio</p>
-    <p>Capturing elegance, one frame at a time.</p>
-    <hr style="margin: 40px auto; width: 60px; border: none; border-top: 1px solid #ddd;">
-    <p style="font-size: 0.9em; color: #999;">&copy; 2026 Vivid Artistry. All rights reserved.</p>
+    <div class="container">
+        <div class="brand">VIVIAN STUDIO</div>
+        <h1>Digital Collections</h1>
+        <p class="subtitle">Exclusive digital publications.<br>Preview before subscribing.</p>
+
+        <div class="lang-grid">
+            <a href="preview/preview_zh.html" class="lang-btn" target="_blank">
+                <span class="label">中文版</span>
+                <span class="desc">Editorial 风格 · 预览</span>
+            </a>
+            <a href="preview/preview_en.html" class="lang-btn" target="_blank">
+                <span class="label">English</span>
+                <span class="desc">Dark Luxury · Preview</span>
+            </a>
+            <a href="preview/preview_ja.html" class="lang-btn" target="_blank">
+                <span class="label">日本語</span>
+                <span class="desc">和風 Wafu · プレビュー</span>
+            </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <p style="font-size:12px; color:#888899; margin-bottom:20px;">
+            Subscribe via Telegram to unlock full editions
+        </p>
+        <a href="https://t.me/VividArtistry_bot" class="bot-link" target="_blank">Open Bot →</a>
+
+        <div class="footer">© 2026 VIVIAN STUDIO</div>
+    </div>
 </body>
 </html>
