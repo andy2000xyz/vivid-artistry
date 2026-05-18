@@ -3,10 +3,10 @@ const editionData = [
     {
         id: "vol1",
         titles: {
-            zh: "夜色初燃时",
-            en: "Gilded Noir Vol.1",
-            ja: "夜の吐息、肌の熱",
-            ko: "침묵의 극치"
+            zh: "撩人的夜语",
+            en: "Gilded Shadows Volume",
+            ja: "夜の肌ざわり",
+            ko: "단순한 미학"
         },
         subtitle: {
             zh: "Vol.1 · 正式版",
@@ -18,10 +18,10 @@ const editionData = [
     {
         id: "vol2",
         titles: {
-            zh: "夜色初绽时",
+            zh: "夜色微醺时",
             en: "Gilded Shadows Vol.2",
-            ja: "夜の棘と蜜",
-            ko: "침묵의 균열"
+            ja: "夜のぬくもり",
+            ko: "순수한 공간"
         },
         subtitle: {
             zh: "Vol.2 · 正式版",
@@ -33,10 +33,10 @@ const editionData = [
     {
         id: "vol3",
         titles: {
-            zh: "慵懒的禁果",
-            en: "Gilded Shadows, Vol.3",
-            ja: "夜の熱帯魚",
-            ko: "선의 침묵"
+            zh: "暗夜低语时",
+            en: "Gilded Shadows Vol.3",
+            ja: "うつ伏せの熱帯魚",
+            ko: "선의 언어"
         },
         subtitle: {
             zh: "Vol.3 · 正式版",
@@ -48,10 +48,10 @@ const editionData = [
     {
         id: "vol4",
         titles: {
-            zh: "暗夜朱唇",
-            en: "Gilded Midnight Muse",
-            ja: "夜の熱の息吹",
-            ko: "빈 공간의 미학"
+            zh: "夜色低语时",
+            en: "Midnight Velvet Noir",
+            ja: "夜の熱帯魚",
+            ko: "선의 미학"
         },
         subtitle: {
             zh: "Vol.4 · 正式版",
