@@ -1,71 +1,30 @@
-// 版本数据 — 每个版本 4 语言标题 + 封面
+// 版本数据
 const editionData = [
-    {
-        id: "vol1",
-        titles: {
-            zh: "迷醉的暗夜",
-            en: "Gilded Shadows Vol.1",
-            ja: "夜の吐息（よるのといき）",
-            ko: "빈 공간의 미학"
-        },
-        subtitle: {
-            zh: "Vol.1 · 正式版",
-            en: "Vol.1 · First Edition",
-            ja: "Vol.1 · 正式版",
-            ko: "Vol.1 · 정식판"
-        }
-    },
-    {
-        id: "vol2",
-        titles: {
-            zh: "暗夜生香",
-            en: "Gilded Shadows Vol.2",
-            ja: "夜の肌のざわめき",
-            ko: "균형의 미적 공간"
-        },
-        subtitle: {
-            zh: "Vol.2 · 正式版",
-            en: "Vol.2 · Second Edition",
-            ja: "Vol.2 · 正式版",
-            ko: "Vol.2 · 정식판"
-        }
-    },
-    {
-        id: "vol3",
-        titles: {
-            zh: "暗夜凝脂香",
-            en: "Gilded Shadows Vol.3",
-            ja: "濡れた月の誘い",
-            ko: "침묵의 곡선"
-        },
-        subtitle: {
-            zh: "Vol.3 · 正式版",
-            en: "Vol.3 · Third Edition",
-            ja: "Vol.3 · 正式版",
-            ko: "Vol.3 · 정식판"
-        }
-    },
-    {
-        id: "vol4",
-        titles: {
-            zh: "暗香浮动的夜",
-            en: "Gilded Shadows Vol. 4",
-            ja: "艶めく肌の旋律",
-            ko: "정적의 선"
-        },
-        subtitle: {
-            zh: "Vol.4 · 正式版",
-            en: "Vol.4 · Fourth Edition",
-            ja: "Vol.4 · 正式版",
-            ko: "Vol.4 · 정식판"
-        }
-    }
+  {
+    id: "vol1",
+    titles: {"zh": "暗夜潮涌时", "en": "Lust in Monochrome", "ja": "夜の肌の温度", "ko": "미니멀한 시선"},
+    subtitle: {"zh": "VOL1 · 正式版", "en": "VOL1 · Edition", "ja": "VOL1 · 正式版", "ko": "VOL1 · 정식판"}
+  },
+  {
+    id: "vol2",
+    titles: {"zh": "暗夜勾勒欲", "en": "Gilded Shadows Vol.2", "ja": "夜の密やかな熱情", "ko": "최소한의 완벽함"},
+    subtitle: {"zh": "VOL2 · 正式版", "en": "VOL2 · Edition", "ja": "VOL2 · 正式版", "ko": "VOL2 · 정식판"}
+  },
+  {
+    id: "vol3",
+    titles: {"zh": "夜色初绽放", "en": "Gold Veins, Dark Silk", "ja": "夜の肌、燃える影", "ko": "순수한 공간"},
+    subtitle: {"zh": "VOL3 · 正式版", "en": "VOL3 · Edition", "ja": "VOL3 · 正式版", "ko": "VOL3 · 정식판"}
+  },
+  {
+    id: "vol4",
+    titles: {"zh": "暗夜缠绕香", "en": "Gilded Shadows Vol.4", "ja": "蒼き肌の誘惑", "ko": "비어있는 경계"},
+    subtitle: {"zh": "VOL4 · 正式版", "en": "VOL4 · Edition", "ja": "VOL4 · 正式版", "ko": "VOL4 · 정식판"}
+  },
 ];
 
-// 语言配置
 const langConfig = {
-    zh: { label: "中文版", nextLabel: "EN", nextLang: "en" },
-    en: { label: "English", nextLabel: "中文", nextLang: "zh" },
-    ja: { label: "日本語", nextLabel: "EN", nextLang: "en" },
-    ko: { label: "한국어", nextLabel: "EN", nextLang: "en" }
+  zh: {label:"中文版",nextLabel:"EN",nextLang:"en"},
+  en: {label:"English",nextLabel:"中文",nextLang:"zh"},
+  ja: {label:"日本語",nextLabel:"EN",nextLang:"en"},
+  ko: {label:"한국어",nextLabel:"EN",nextLang:"en"}
 };
