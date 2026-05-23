@@ -50,6 +50,47 @@ const editionData = [
     titles: {"zh": "暗夜蜜桃 · 编辑精选", "en": "Vol10: Gilded Shadows · Editorial Collection", "ja": "夜の囁き、肌の熱 · 編集コレクション", "ko": "디지털 순수함 · 편집 컬렉션"},
     subtitle: {"zh": "VOL10 · 正式版", "en": "VOL10 · Edition", "ja": "VOL10 · 正式版", "ko": "VOL10 · 정식판"}
   },
+  {
+    id: "vol11",
+    titles: {"zh": "夜缠呼吸 · 编辑精选", "en": "Gilded Midnight Visions · Editorial Collection", "ja": "夜の感触の余韻 · 編集コレクション", "ko": "선의 침묵 · 편집 컬렉션"},
+    subtitle: {"zh": "VOL11 · 正式版", "en": "VOL11 · Edition", "ja": "VOL11 · 正式版", "ko": "VOL11 · 정식판"}
+  },
+  {
+    id: "vol12",
+    titles: {"zh": "夜火灼吻痕 · 编辑精选", "en": "Gilded Midnight Reverie · Editorial Collection", "ja": "夜の誘い · 編集コレクション", "ko": "순백의 침묵 · 편집 컬렉션"},
+    subtitle: {"zh": "VOL12 · 正式版", "en": "VOL12 · Edition", "ja": "VOL12 · 正式版", "ko": "VOL12 · 정식판"}
+  },
+  {
+    id: "vol13",
+    titles: {"zh": "夜色的私语 · 编辑精选", "en": "Gilded Shadows of Desire · Editorial Collection", "ja": "夜の秘密、肌に触れる · 編集コレクション", "ko": "균형의 미학 · 편집 컬렉션"},
+    subtitle: {"zh": "VOL13 · 正式版", "en": "VOL13 · Edition", "ja": "VOL13 · 正式版", "ko": "VOL13 · 정식판"}
+  },
+  {
+    id: "vol14",
+    titles: {"zh": "暗夜灼烧 · 编辑精选", "en": "Gilded Shadows Vol.14 · Editorial Collection", "ja": "夜の秘密を抱く · 編集コレクション", "ko": "순수한 선 · 편집 컬렉션"},
+    subtitle: {"zh": "VOL14 · 正式版", "en": "VOL14 · Edition", "ja": "VOL14 · 正式版", "ko": "VOL14 · 정식판"}
+  },
+  {
+    id: "vol15",
+    titles: {"zh": "暗夜蜜语 · 编辑精选", "en": "Vol. 15: Gilded Shadows · Editorial Collection", "ja": "夜の肌の秘密 · 編集コレクション", "ko": "순백의 고요 · 편집 컬렉션"},
+    subtitle: {"zh": "VOL15 · 正式版", "en": "VOL15 · Edition", "ja": "VOL15 · 正式版", "ko": "VOL15 · 정식판"}
+  },
+  {
+    id: "vol16",
+    titles: {"zh": "燥热午后的喘息 · 编辑精选", "en": "Gilded Shadows Gallery · Editorial Collection", "ja": "夜の密やかな果実 · 編集コレクション", "ko": "침묵의 윤곽 · 편집 컬렉션"},
+    subtitle: {"zh": "VOL16 · 正式版", "en": "VOL16 · Edition", "ja": "VOL16 · 正式版", "ko": "VOL16 · 정식판"}
+  },
+  {
+    id: "vol17",
+    titles: {"zh": "暗夜吻痕 · 编辑精选", "en": "Gilded Noir Seduction · Editorial Collection", "ja": "秘められた夜の肢体 · 編集コレクション", "ko": "침묵의 곡선 · 편집 컬렉션"},
+    subtitle: {"zh": "VOL17 · 正式版", "en": "VOL17 · Edition", "ja": "VOL17 · 正式版", "ko": "VOL17 · 정식판"}
+  },
+  {
+    id: "vol18",
+    titles: {"zh": "夜色未央时 · 编辑精选", "en": "Gilded Shadows Unveiled · Editorial Collection", "ja": "夜の感触 · 編集コレクション", "ko": "정적 속의 긴장 · 편집 컬렉션"},
+    subtitle: {"zh": "VOL18 · 正式版", "en": "VOL18 · Edition", "ja": "VOL18 · 正式版", "ko": "VOL18 · 정식판"}
+  },
+
 
 ];
 
