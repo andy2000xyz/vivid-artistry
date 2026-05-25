@@ -18,32 +18,64 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ─── HERO SECTION ─── */
+/* ─── HERO — FULL VIEWPORT ─── */
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 24px;
-  background: radial-gradient(ellipse at 50% 30%, #0e0e18 0%, #06060a 70%);
+  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
+  background: #06060a;
 }
 
-/* subtle grain overlay */
-.hero::before {
-  content: '';
+/* ─── VIDEO — FILLS VIEWPORT HEIGHT ─── */
+.video-wrapper {
   position: absolute;
   inset: 0;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 256px 256px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.video-wrapper video {
+  height: 100vh;
+  height: 100dvh;
+  width: auto;
+  display: block;
+  background: #06060a;
+}
+
+/* poster overlay */
+.poster-overlay {
+  position: absolute;
+  inset: 0;
+  background-size: auto 100vh;
+  background-size: auto 100dvh;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 0.6s;
+  z-index: 2;
   pointer-events: none;
 }
 
-/* ─── BRAND ─── */
+.poster-overlay.hidden {
+  opacity: 0;
+}
+
+/* ─── TOP OVERLAY: brand + title ─── */
+.hero-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: 40px 32px 60px;
+  background: linear-gradient(180deg, rgba(6,6,10,0.7) 0%, transparent 100%);
+  pointer-events: none;
+  text-align: center;
+}
+
 .brand {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 11px;
@@ -51,70 +83,28 @@ body {
   text-transform: uppercase;
   color: #d4a84b;
   margin-bottom: 2px;
-  position: relative;
-  z-index: 1;
 }
 
 .title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 400;
   color: #ffffff;
-  margin-bottom: 40px;
-  position: relative;
-  z-index: 1;
 }
 
-/* ─── VIDEO PLAYER ─── */
-.video-wrapper {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 520px;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,168,75,0.08);
-  cursor: pointer;
-  margin-bottom: 36px;
-}
-
-.video-wrapper video {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1080 / 1364;
-  object-fit: cover;
-  background: #0a0a12;
-}
-
-/* poster overlay when not playing */
-.poster-overlay {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transition: opacity 0.6s;
-  z-index: 2;
-}
-
-.poster-overlay.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* play button */
+/* ─── PLAY BUTTON ─── */
 .play-btn {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 3;
-  width: 68px;
-  height: 68px;
-  border: 2px solid rgba(240,236,228,0.6);
+  z-index: 4;
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(240,236,228,0.5);
   border-radius: 50%;
-  background: rgba(6,6,10,0.5);
-  backdrop-filter: blur(4px);
+  background: rgba(6,6,10,0.4);
+  backdrop-filter: blur(6px);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -125,54 +115,48 @@ body {
 .play-btn:hover {
   border-color: #d4a84b;
   background: rgba(212,168,75,0.15);
-  transform: translate(-50%, -50%) scale(1.05);
+  transform: translate(-50%, -50%) scale(1.06);
 }
 
 .play-btn svg {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   fill: #f0ece4;
-  margin-left: 3px;
+  margin-left: 4px;
   transition: fill 0.3s;
 }
 
-.play-btn:hover svg {
-  fill: #d4a84b;
-}
+.play-btn:hover svg { fill: #d4a84b; }
+.play-btn.playing { opacity: 0; pointer-events: none; }
 
-.play-btn.playing {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* video controls */
+/* ─── BOTTOM CONTROLS ─── */
 .video-controls {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 3;
-  padding: 40px 14px 12px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  z-index: 4;
+  padding: 50px 20px 16px;
+  background: linear-gradient(transparent, rgba(6,6,10,0.6));
   opacity: 0;
   transition: opacity 0.4s;
 }
 
 .video-wrapper:hover .video-controls,
-.video-controls.active {
-  opacity: 1;
-}
+.video-controls.active { opacity: 1; }
 
 .control-bar {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .progress-track {
   flex: 1;
   height: 3px;
-  background: rgba(240,236,228,0.15);
+  background: rgba(240,236,228,0.12);
   border-radius: 2px;
   cursor: pointer;
   position: relative;
@@ -191,73 +175,57 @@ body {
   border: none;
   cursor: pointer;
   padding: 4px;
-  color: rgba(240,236,228,0.7);
-  font-size: 10px;
+  color: rgba(240,236,228,0.6);
   display: flex;
   align-items: center;
-  gap: 4px;
   transition: color 0.2s;
   font-family: 'Inter', sans-serif;
 }
 
 .ctrl-btn:hover { color: #d4a84b; }
-
-.ctrl-btn svg { width: 14px; height: 14px; fill: currentColor; }
+.ctrl-btn svg { width: 16px; height: 16px; fill: currentColor; }
 
 .time-display {
-  font-size: 10px;
-  color: rgba(240,236,228,0.5);
+  font-size: 11px;
+  color: rgba(240,236,228,0.4);
   font-family: 'Inter', sans-serif;
   letter-spacing: 0.05em;
-  min-width: 32px;
+  min-width: 36px;
+  font-variant-numeric: tabular-nums;
 }
 
-/* ─── TAGLINE ─── */
-.tagline {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 16px;
-  font-style: italic;
-  color: #888899;
-  text-align: center;
-  line-height: 1.7;
-  margin-bottom: 6px;
-  position: relative;
-  z-index: 1;
-}
-
-/* ─── SCROLL INDICATOR ─── */
+/* ─── SCROLL HINT ─── */
 .scroll-hint {
   position: absolute;
   bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  color: #555566;
+  color: rgba(240,236,228,0.25);
   font-size: 9px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   animation: pulse-down 2.5s ease-in-out infinite;
+  pointer-events: none;
 }
 
 @keyframes pulse-down {
-  0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
-  50% { opacity: 0.8; transform: translateX(-50%) translateY(4px); }
+  0%, 100% { opacity: 0.25; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.7; transform: translateX(-50%) translateY(4px); }
 }
 
 .scroll-hint .arrow {
   width: 1px;
   height: 24px;
-  background: linear-gradient(#555566, transparent);
+  background: linear-gradient(rgba(240,236,228,0.25), transparent);
 }
 
-/* ─── PORTAL SECTION ─── */
+/* ─── PORTAL ─── */
 .portal {
-  position: relative;
-  z-index: 1;
   padding: 80px 24px 60px;
   text-align: center;
   background: #06060a;
@@ -356,24 +324,22 @@ body {
 }
 
 /* ─── RESPONSIVE ─── */
-@media (max-width: 480px) {
-  .hero { padding: 32px 16px; min-height: 100dvh; }
-  .title { font-size: 24px; margin-bottom: 32px; }
-  .video-wrapper { max-width: 320px; }
-  .play-btn { width: 60px; height: 60px; }
-  .play-btn svg { width: 18px; height: 18px; }
-  .tagline { font-size: 14px; }
+@media (max-width: 640px) {
+  .hero-top { padding: 28px 20px 50px; }
+  .title { font-size: 20px; }
+  .play-btn { width: 64px; height: 64px; }
+  .play-btn svg { width: 20px; height: 20px; }
+  .video-controls { padding: 40px 14px 12px; }
   .portal { padding: 60px 16px 40px; }
   .lang-link { min-width: 100px; padding: 14px 20px; }
   .lang-link .native { font-size: 16px; }
 }
 
-@media (min-width: 1200px) {
-  .hero { padding: 32px 24px; }
-  .video-wrapper { max-width: 600px; }
-  .title { font-size: 32px; margin-bottom: 48px; }
-  .play-btn { width: 80px; height: 80px; }
-  .play-btn svg { width: 26px; height: 26px; }
+@media (min-width: 1600px) {
+  .hero-top { padding: 52px 48px 80px; }
+  .title { font-size: 28px; }
+  .play-btn { width: 96px; height: 96px; }
+  .play-btn svg { width: 30px; height: 30px; }
 }
 </style>
 </head>
@@ -381,8 +347,11 @@ body {
 
 <!-- ─── HERO ─── -->
 <section class="hero">
-  <div class="brand">VIVIAN STUDIO</div>
-  <h1 class="title">Private Archive</h1>
+  <!-- brand/title overlay -->
+  <div class="hero-top">
+    <div class="brand">VIVIAN STUDIO</div>
+    <h1 class="title">Private Archive</h1>
+  </div>
 
   <div class="video-wrapper" id="player">
     <video id="introVideo" preload="metadata" playsinline
@@ -390,16 +359,15 @@ body {
       <source src="/video/intro.mp4" type="video/mp4">
     </video>
 
-    <!-- poster overlay for custom play UI -->
-    <div class="poster-overlay" id="posterOverlay"
-         style="background-image: url(/poster.jpg);"></div>
+    <!-- poster overlay -->
+    <div class="poster-overlay" id="posterOverlay" style="background-image:url(/poster.jpg)"></div>
 
     <!-- play button -->
     <button class="play-btn" id="playBtn" aria-label="Play introduction">
       <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
     </button>
 
-    <!-- custom controls -->
+    <!-- controls -->
     <div class="video-controls" id="controls">
       <div class="control-bar">
         <button class="ctrl-btn" id="pauseBtn" aria-label="Pause">
@@ -413,10 +381,8 @@ body {
     </div>
   </div>
 
-  <p class="tagline">Every archive begins with one story.</p>
-
   <div class="scroll-hint">
-    <span>Explore</span>
+    <span>Scroll</span>
     <div class="arrow"></div>
   </div>
 </section>
@@ -474,8 +440,7 @@ body {
 
   function updateProgress() {
     if (!video.duration) return;
-    const pct = (video.currentTime / video.duration) * 100;
-    progressFill.style.width = pct + '%';
+    progressFill.style.width = ((video.currentTime / video.duration) * 100) + '%';
     timeDisplay.textContent = fmt(video.currentTime);
   }
 
@@ -491,79 +456,58 @@ body {
     controls.classList.add('active');
   }
 
-  // Play button
   playBtn.addEventListener('click', function(e) {
     e.stopPropagation();
     if (video.paused) startPlay(); else pausePlay();
   });
 
-  // Click on video wrapper to toggle
   wrapper.addEventListener('click', function(e) {
     if (e.target.closest('.ctrl-btn') || e.target.closest('.progress-track')) return;
     if (video.paused) startPlay(); else pausePlay();
   });
 
-  // Pause button
   pauseBtn.addEventListener('click', function(e) {
     e.stopPropagation();
     pausePlay();
-    // Swap icon to play
     pauseBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
   });
 
-  // When video plays, update pause button icon
   video.addEventListener('play', function() {
     pauseBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>';
   });
 
   video.addEventListener('pause', function() {
     pauseBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
-    // Keep poster hidden once started
-    if (video.currentTime > 0) {
-      controls.classList.add('active');
-    }
+    if (video.currentTime > 0) controls.classList.add('active');
   });
 
   video.addEventListener('timeupdate', updateProgress);
 
-  // When video ends, reset
   video.addEventListener('ended', function() {
     playBtn.classList.remove('playing');
     pauseBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
   });
 
-  // Progress bar seeking
   progressTrack.addEventListener('click', function(e) {
     const rect = progressTrack.getBoundingClientRect();
-    const pct = (e.clientX - rect.left) / rect.width;
-    video.currentTime = pct * video.duration;
+    video.currentTime = ((e.clientX - rect.left) / rect.width) * video.duration;
   });
 
-  // Show controls on hover/move within wrapper
   let controlsTimer;
   wrapper.addEventListener('mousemove', function() {
     if (!video.paused) {
       controls.classList.add('active');
       clearTimeout(controlsTimer);
-      controlsTimer = setTimeout(function() {
-        controls.classList.remove('active');
-      }, 3000);
+      controlsTimer = setTimeout(function() { controls.classList.remove('active'); }, 3000);
     }
   });
   wrapper.addEventListener('mouseleave', function() {
-    if (!video.paused) {
-      clearTimeout(controlsTimer);
-      controls.classList.remove('active');
-    }
+    if (!video.paused) { clearTimeout(controlsTimer); controls.classList.remove('active'); }
   });
 
-  // Keyboard shortcut: Space to toggle
   document.addEventListener('keydown', function(e) {
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-    if (e.code === 'Space') {
-      e.preventDefault();
-      if (video.paused) startPlay(); else pausePlay();
-    }
+    if (e.code === 'Space') { e.preventDefault(); if (video.paused) startPlay(); else pausePlay(); }
   });
 })();
 </script>
