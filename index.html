@@ -1,149 +1,564 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIVIAN STUDIO · Private Archive</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, 'Helvetica Neue', 'Inter', sans-serif;
-            background: #08080c;
-            color: #f0ece4;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .container {
-            max-width: 480px;
-            width: 100%;
-            padding: 64px 24px 40px;
-            text-align: center;
-        }
-        .brand {
-            font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-            font-size: 11px;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: #d4a84b;
-            margin-bottom: 4px;
-        }
-        h1 {
-            font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-            font-size: 26px;
-            font-weight: 400;
-            color: #ffffff;
-            margin-bottom: 8px;
-        }
-        .subtitle {
-            font-size: 12px;
-            color: #777788;
-            line-height: 1.6;
-            margin-bottom: 48px;
-        }
-        .lang-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 48px;
-        }
-        .lang-btn {
-            display: block;
-            padding: 24px 16px;
-            border: 1px solid #2a2a3a;
-            border-radius: 4px;
-            background: transparent;
-            color: #f0ece4;
-            text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 0.06em;
-            transition: all 0.25s;
-            text-align: center;
-        }
-        .lang-btn:hover {
-            border-color: #d4a84b;
-            background: rgba(212, 168, 75, 0.06);
-            transform: translateY(-1px);
-        }
-        .lang-btn .label {
-            font-size: 18px;
-            font-weight: 500;
-            display: block;
-            margin-bottom: 2px;
-        }
-        .lang-btn .desc {
-            font-size: 10px;
-            color: #666677;
-            letter-spacing: 0.05em;
-        }
-        .divider {
-            width: 40px;
-            height: 1px;
-            background: #2a2a3a;
-            margin: 0 auto 32px;
-        }
-        .telegram-link {
-            display: inline-block;
-            font-size: 11px;
-            color: #888899;
-            text-decoration: none;
-            letter-spacing: 0.12em;
-            border: 1px solid #2a2a3a;
-            padding: 10px 24px;
-            border-radius: 4px;
-            transition: all 0.25s;
-        }
-        .telegram-link:hover {
-            border-color: #d4a84b;
-            color: #d4a84b;
-        }
-        .footer {
-            margin-top: 40px;
-            font-size: 10px;
-            color: #444455;
-            letter-spacing: 0.1em;
-        }
-        @media (max-width: 480px) {
-            .container { padding: 40px 20px 32px; }
-            h1 { font-size: 22px; }
-            .lang-btn { padding: 20px 14px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIVIAN STUDIO · Private Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, 'Helvetica Neue', sans-serif;
+  background: #06060a;
+  color: #f0ece4;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── HERO SECTION ─── */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background: radial-gradient(ellipse at 50% 30%, #0e0e18 0%, #06060a 70%);
+  overflow: hidden;
+}
+
+/* subtle grain overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  pointer-events: none;
+}
+
+/* ─── BRAND ─── */
+.brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #d4a84b;
+  margin-bottom: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── VIDEO PLAYER ─── */
+.video-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,168,75,0.08);
+  cursor: pointer;
+  margin-bottom: 36px;
+}
+
+.video-wrapper video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1080 / 1364;
+  object-fit: cover;
+  background: #0a0a12;
+}
+
+/* poster overlay when not playing */
+.poster-overlay {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.6s;
+  z-index: 2;
+}
+
+.poster-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* play button */
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 68px;
+  height: 68px;
+  border: 2px solid rgba(240,236,228,0.6);
+  border-radius: 50%;
+  background: rgba(6,6,10,0.5);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s;
+}
+
+.play-btn:hover {
+  border-color: #d4a84b;
+  background: rgba(212,168,75,0.15);
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.play-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: #f0ece4;
+  margin-left: 3px;
+  transition: fill 0.3s;
+}
+
+.play-btn:hover svg {
+  fill: #d4a84b;
+}
+
+.play-btn.playing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* video controls */
+.video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 40px 14px 12px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.video-wrapper:hover .video-controls,
+.video-controls.active {
+  opacity: 1;
+}
+
+.control-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-track {
+  flex: 1;
+  height: 3px;
+  background: rgba(240,236,228,0.15);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #d4a84b;
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+.ctrl-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: rgba(240,236,228,0.7);
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.ctrl-btn:hover { color: #d4a84b; }
+
+.ctrl-btn svg { width: 14px; height: 14px; fill: currentColor; }
+
+.time-display {
+  font-size: 10px;
+  color: rgba(240,236,228,0.5);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.05em;
+  min-width: 32px;
+}
+
+/* ─── TAGLINE ─── */
+.tagline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #888899;
+  text-align: center;
+  line-height: 1.7;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── SCROLL INDICATOR ─── */
+.scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #555566;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  animation: pulse-down 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-down {
+  0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.8; transform: translateX(-50%) translateY(4px); }
+}
+
+.scroll-hint .arrow {
+  width: 1px;
+  height: 24px;
+  background: linear-gradient(#555566, transparent);
+}
+
+/* ─── PORTAL SECTION ─── */
+.portal {
+  position: relative;
+  z-index: 1;
+  padding: 80px 24px 60px;
+  text-align: center;
+  background: #06060a;
+}
+
+.portal-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4a84b, transparent);
+  margin: 0 auto 32px;
+}
+
+.portal h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #888899;
+  margin-bottom: 32px;
+}
+
+.lang-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.lang-link {
+  display: block;
+  padding: 16px 28px;
+  border: 1px solid #2a2a3a;
+  border-radius: 4px;
+  background: transparent;
+  color: #f0ece4;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  transition: all 0.3s;
+  min-width: 120px;
+}
+
+.lang-link:hover {
+  border-color: #d4a84b;
+  background: rgba(212,168,75,0.06);
+  transform: translateY(-2px);
+}
+
+.lang-link .native {
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 1px;
+}
+
+.lang-link .desc {
+  font-size: 10px;
+  color: #666677;
+}
+
+.tg-section {
+  margin-top: 40px;
+}
+
+.tg-section p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 13px;
+  color: #888899;
+  margin-bottom: 16px;
+}
+
+.tg-link {
+  display: inline-block;
+  font-size: 10px;
+  color: #888899;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  border: 1px solid #2a2a3a;
+  padding: 10px 24px;
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.tg-link:hover {
+  border-color: #d4a84b;
+  color: #d4a84b;
+}
+
+.footer {
+  margin-top: 60px;
+  font-size: 9px;
+  color: #444455;
+  letter-spacing: 0.1em;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 480px) {
+  .hero { padding: 32px 16px; min-height: 100dvh; }
+  .title { font-size: 24px; margin-bottom: 32px; }
+  .video-wrapper { max-width: 320px; }
+  .play-btn { width: 60px; height: 60px; }
+  .play-btn svg { width: 18px; height: 18px; }
+  .tagline { font-size: 14px; }
+  .portal { padding: 60px 16px 40px; }
+  .lang-link { min-width: 100px; padding: 14px 20px; }
+  .lang-link .native { font-size: 16px; }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="brand">VIVIAN STUDIO</div>
-        <h1>Private Archive</h1>
-        <p class="subtitle">Exclusive digital publications.<br>Select your language to browse editions.</p>
 
-        <div class="lang-grid">
-            <a href="zh/" class="lang-btn">
-                <span class="label">中文版</span>
-                <span class="desc">4 部作品</span>
-            </a>
-            <a href="en/" class="lang-btn">
-                <span class="label">English</span>
-                <span class="desc">4 Editions</span>
-            </a>
-            <a href="ja/" class="lang-btn">
-                <span class="label">日本語</span>
-                <span class="desc">4 作品</span>
-            </a>
-            <a href="ko/" class="lang-btn">
-                <span class="label">한국어</span>
-                <span class="desc">4 에디션</span>
-            </a>
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="brand">VIVIAN STUDIO</div>
+  <h1 class="title">Private Archive</h1>
+
+  <div class="video-wrapper" id="player">
+    <video id="introVideo" preload="metadata" playsinline
+           poster="/poster.jpg">
+      <source src="/video/intro.mp4" type="video/mp4">
+    </video>
+
+    <!-- poster overlay for custom play UI -->
+    <div class="poster-overlay" id="posterOverlay"
+         style="background-image: url(/poster.jpg);"></div>
+
+    <!-- play button -->
+    <button class="play-btn" id="playBtn" aria-label="Play introduction">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+
+    <!-- custom controls -->
+    <div class="video-controls" id="controls">
+      <div class="control-bar">
+        <button class="ctrl-btn" id="pauseBtn" aria-label="Pause">
+          <svg viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>
+        </button>
+        <div class="progress-track" id="progressTrack">
+          <div class="progress-fill" id="progressFill"></div>
         </div>
-
-        <div class="divider"></div>
-
-        <p style="font-size:11px; color:#888899; margin-bottom:20px;">
-            Subscribe via Telegram to unlock full editions
-        </p>
-        <a href="https://t.me/VividArtistry_bot" class="telegram-link" target="_blank">Open in Telegram →</a>
-
-        <div class="footer">© 2026 VIVIAN STUDIO</div>
+        <span class="time-display" id="timeDisplay">0:00</span>
+      </div>
     </div>
+  </div>
+
+  <p class="tagline">Every archive begins with one story.</p>
+
+  <div class="scroll-hint">
+    <span>Explore</span>
+    <div class="arrow"></div>
+  </div>
+</section>
+
+<!-- ─── PORTAL ─── -->
+<section class="portal">
+  <div class="portal-divider"></div>
+  <h2>Enter the Archive</h2>
+
+  <div class="lang-row">
+    <a href="/zh/" class="lang-link">
+      <span class="native">中文版</span>
+      <span class="desc">作品集</span>
+    </a>
+    <a href="/en/" class="lang-link">
+      <span class="native">English</span>
+      <span class="desc">Editions</span>
+    </a>
+    <a href="/ja/" class="lang-link">
+      <span class="native">日本語</span>
+      <span class="desc">作品集</span>
+    </a>
+    <a href="/ko/" class="lang-link">
+      <span class="native">한국어</span>
+      <span class="desc">에디션</span>
+    </a>
+  </div>
+
+  <div class="tg-section">
+    <p>Subscribe to unlock full editions</p>
+    <a href="https://t.me/VividArtistry_bot" class="tg-link" target="_blank">Open in Telegram →</a>
+  </div>
+
+  <div class="footer">© 2026 VIVIAN STUDIO · Private Archive</div>
+</section>
+
+<script>
+(function(){
+  const video = document.getElementById('introVideo');
+  const wrapper = document.getElementById('player');
+  const playBtn = document.getElementById('playBtn');
+  const posterOverlay = document.getElementById('posterOverlay');
+  const controls = document.getElementById('controls');
+  const pauseBtn = document.getElementById('pauseBtn');
+  const progressFill = document.getElementById('progressFill');
+  const progressTrack = document.getElementById('progressTrack');
+  const timeDisplay = document.getElementById('timeDisplay');
+
+  function fmt(t) {
+    if (!t || !isFinite(t)) return '0:00';
+    const m = Math.floor(t / 60);
+    const s = Math.floor(t % 60);
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+
+  function updateProgress() {
+    if (!video.duration) return;
+    const pct = (video.currentTime / video.duration) * 100;
+    progressFill.style.width = pct + '%';
+    timeDisplay.textContent = fmt(video.currentTime);
+  }
+
+  function startPlay() {
+    video.play();
+    playBtn.classList.add('playing');
+    posterOverlay.classList.add('hidden');
+    controls.classList.add('active');
+  }
+
+  function pausePlay() {
+    video.pause();
+    controls.classList.add('active');
+  }
+
+  // Play button
+  playBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (video.paused) startPlay(); else pausePlay();
+  });
+
+  // Click on video wrapper to toggle
+  wrapper.addEventListener('click', function(e) {
+    if (e.target.closest('.ctrl-btn') || e.target.closest('.progress-track')) return;
+    if (video.paused) startPlay(); else pausePlay();
+  });
+
+  // Pause button
+  pauseBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    pausePlay();
+    // Swap icon to play
+    pauseBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+  });
+
+  // When video plays, update pause button icon
+  video.addEventListener('play', function() {
+    pauseBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>';
+  });
+
+  video.addEventListener('pause', function() {
+    pauseBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+    // Keep poster hidden once started
+    if (video.currentTime > 0) {
+      controls.classList.add('active');
+    }
+  });
+
+  video.addEventListener('timeupdate', updateProgress);
+
+  // When video ends, reset
+  video.addEventListener('ended', function() {
+    playBtn.classList.remove('playing');
+    pauseBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+  });
+
+  // Progress bar seeking
+  progressTrack.addEventListener('click', function(e) {
+    const rect = progressTrack.getBoundingClientRect();
+    const pct = (e.clientX - rect.left) / rect.width;
+    video.currentTime = pct * video.duration;
+  });
+
+  // Show controls on hover/move within wrapper
+  let controlsTimer;
+  wrapper.addEventListener('mousemove', function() {
+    if (!video.paused) {
+      controls.classList.add('active');
+      clearTimeout(controlsTimer);
+      controlsTimer = setTimeout(function() {
+        controls.classList.remove('active');
+      }, 3000);
+    }
+  });
+  wrapper.addEventListener('mouseleave', function() {
+    if (!video.paused) {
+      clearTimeout(controlsTimer);
+      controls.classList.remove('active');
+    }
+  });
+
+  // Keyboard shortcut: Space to toggle
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.code === 'Space') {
+      e.preventDefault();
+      if (video.paused) startPlay(); else pausePlay();
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
