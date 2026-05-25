@@ -153,5 +153,31 @@
         }).join('');
         grid.innerHTML = editions;
     </script>
+
+<!-- img-protect-js --><script>
+(function(){
+function p(){
+document.querySelectorAll('.page img,.edition-card img').forEach(function(i){
+if(i._rp)return;
+var s=i.currentSrc||i.src,w=i.naturalWidth,h=i.naturalHeight;
+if(!s||!w||!h)return;
+i._rp=1;
+var d=document.createElement('div');
+d.style.backgroundImage='url("'+s.replace(/"/g,'\\"')+'")';
+d.style.backgroundSize='contain';
+d.style.backgroundPosition='center';
+d.style.backgroundRepeat='no-repeat';
+d.style.width='100%';
+d.style.display='block';
+d.style.aspectRatio=w+'/'+h;
+d.style.pointerEvents='none';
+d.style.userSelect='none';
+d.style.webkitTouchCallout='none';
+i.parentNode.replaceChild(d,i)
+})}
+document.addEventListener('DOMContentLoaded',p);
+window.addEventListener('load',p);
+})();
+</script>
 </body>
 </html>
