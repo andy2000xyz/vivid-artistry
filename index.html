@@ -323,6 +323,67 @@ body {
   letter-spacing: 0.1em;
 }
 
+/* ─── SOCIAL ─── */
+.social-section {
+  margin-top: 48px;
+}
+
+.social-section h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #888899;
+  margin-bottom: 20px;
+}
+
+.social-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid #2a2a3a;
+  border-radius: 4px;
+  background: transparent;
+  color: #f0ece4;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  transition: all 0.3s;
+}
+
+.social-link:hover {
+  border-color: #d4a84b;
+  background: rgba(212,168,75,0.06);
+  transform: translateY(-1px);
+}
+
+.social-link svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.social-link:hover svg {
+  opacity: 1;
+}
+
+.patreon-link {
+  border-color: rgba(212,168,75,0.2);
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 640px) {
   .hero-top { padding: 28px 20px 50px; }
@@ -333,6 +394,8 @@ body {
   .portal { padding: 60px 16px 40px; }
   .lang-link { min-width: 100px; padding: 14px 20px; }
   .lang-link .native { font-size: 16px; }
+  .social-grid { gap: 6px; }
+  .social-link { font-size: 10px; padding: 6px 10px; }
 }
 
 @media (min-width: 1600px) {
@@ -413,6 +476,46 @@ body {
   <div class="tg-section">
     <p>Subscribe to unlock full editions</p>
     <a href="https://t.me/VividArtistry_bot" class="tg-link" target="_blank">Open in Telegram →</a>
+  </div>
+
+  <div class="social-section">
+    <div class="portal-divider"></div>
+    <h2>Also on</h2>
+
+    <div class="social-grid">
+      <a href="https://www.instagram.com/vividartistry2023/" class="social-link" target="_blank" title="Instagram 主号 @vividartistry2023">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        <span>@vividartistry2023</span>
+      </a>
+      <a href="https://www.instagram.com/vividartistry_archive/" class="social-link" target="_blank" title="Instagram 存档号 @vividartistry_archive">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        <span>@vividartistry_archive</span>
+      </a>
+      <a href="https://www.threads.net/@vividartistry2023" class="social-link" target="_blank" title="Threads 主号 @vividartistry2023">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7c-2.8 0-5 2-5 5s2.2 5 5 5c1.4 0 2.5-.5 3.3-1.3" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>@vividartistry2023</span>
+      </a>
+      <a href="https://www.threads.net/@vividartistry_archive" class="social-link" target="_blank" title="Threads 存档号 @vividartistry_archive">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 7c-2.8 0-5 2-5 5s2.2 5 5 5c1.4 0 2.5-.5 3.3-1.3" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>@vividartistry_archive</span>
+      </a>
+      <a href="https://www.tiktok.com/@vivid.artistry" class="social-link" target="_blank" title="TikTok @vivid.artistry">
+        <svg viewBox="0 0 24 24"><path d="M19 8.5v2a4.5 4.5 0 01-4.5-4.5H12v9a3 3 0 11-3-3v2a1 1 0 102 0V4h2.5a4.5 4.5 0 004.5 4.5z" fill="currentColor"/></svg>
+        <span>@vivid.artistry</span>
+      </a>
+      <a href="https://www.facebook.com/vividartistry2023" class="social-link" target="_blank" title="Facebook Vivid Artistry">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 7.5h-2a1 1 0 00-1 1V20M10.5 13h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Vivid Artistry</span>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61589702860622" class="social-link" target="_blank" title="Facebook Vividartistryarchive">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14 7.5h-2a1 1 0 00-1 1V20M10.5 13h4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Vividartistryarchive</span>
+      </a>
+      <a href="https://www.patreon.com/c/VividArtistry" class="social-link patreon-link" target="_blank" title="Patreon 付费专栏">
+        <svg viewBox="0 0 24 24"><circle cx="13" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 3v18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span>Patreon</span>
+      </a>
+    </div>
   </div>
 
   <div class="footer">© 2026 VIVIAN STUDIO · Private Archive</div>
