@@ -119,7 +119,25 @@
             .edition-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
         }
     </style>
-<style>/* image-protect */img{pointer-events:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}</style></head>
+<style>/* image-protect */img{pointer-events:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+        .store-section { text-align: center; margin-bottom: 32px; }
+        .store-btn {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #06060a;
+            background: #d4a84b;
+            padding: 14px 36px;
+            border-radius: 3px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+        .store-btn:hover {
+            background: #e8c062;
+            transform: translateY(-1px);
+        }</style></head>
 <body>
     <div class="container">
         <div class="top-bar">
@@ -132,7 +150,11 @@
 
         <div class="edition-grid" id="gallery"></div>
 
-        <div class="footer">© 2026 VIVIAN STUDIO</div>
+                <div class="store-section">
+            <a href="../purchase/" class="store-btn">Purchase Full Edition · $10 USDT</a>
+        </div>
+
+<div class="footer">© 2026 VIVIAN STUDIO</div>
     </div>
 
     <script src="../js/gallery.js"></script>
