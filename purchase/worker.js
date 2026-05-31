@@ -77,7 +77,7 @@ async function createInvoice(key, orderId, price, desc, webhookUrl) {
     method: 'POST',
     headers: { 'x-api-key': key, 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      price_amount: price, price_currency: 'usd', pay_currency: 'usdttrc20',
+      price_amount: price, price_currency: 'usd',
       order_id: orderId, order_description: desc,
       ipn_callback_url: webhookUrl,
       success_url: 'https://vividartistry.net/purchase/',
