@@ -16,6 +16,7 @@ body {
   color: #f0ece4;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  -webkit-touch-callout: none;
 }
 .container {
   max-width: 800px;
@@ -85,9 +86,14 @@ h1 {
 .edition-card .cover {
   width: 100%;
   aspect-ratio: 4 / 5;
-  object-fit: cover;
-  display: block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background: #12121a;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .edition-card .info {
   padding: 12px 14px 14px;
@@ -375,6 +381,20 @@ h1 {
 // Config — set these after deploying the Worker
 const WORKER_URL = 'https://vivid-purchase.jianfeng-li1008.workers.dev';
 
+// ── 防下载保护 ──
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('dragstart', e => e.preventDefault());
+document.addEventListener('copy', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+  if (e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
+      (e.ctrlKey && e.key === 'u') ||
+      (e.ctrlKey && e.key === 's') ||
+      (e.metaKey && e.key === 's')) {
+    e.preventDefault();
+  }
+});
+
 // Render edition grid + populate select
 const grid = document.getElementById('editionGrid');
 const select = document.getElementById('editionSelect');
@@ -394,7 +414,7 @@ editionData.forEach(function(ed) {
     selectEdition(ed.id);
   };
   card.innerHTML =
-    '<img class="cover" src="' + cover + '" alt="' + ed.titles.en + '" loading="lazy">' +
+    '<div class="cover" style="background-image:url(\'' + cover + '\')"></div>' +
     '<div class="info">' +
       '<div class="ed-vol">VOL' + ed.id.replace('vol','') + '</div>' +
       '<div class="ed-title">' + ed.titles.en + '</div>' +
