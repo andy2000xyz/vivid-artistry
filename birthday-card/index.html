@@ -16,6 +16,7 @@ body {
   color: #f0ece4;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  -webkit-touch-callout: none;
 }
 .container { max-width: 800px; margin: 0 auto; padding: 48px 24px 40px; }
 .back {
@@ -87,6 +88,21 @@ h1 {
   aspect-ratio: 9/16;
   object-fit: cover;
   display: block;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.template-card .preview {
+  width: 100%;
+  aspect-ratio: 9/16;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .template-card .label {
   padding: 10px 14px;
@@ -327,7 +343,7 @@ TEMPLATES.forEach(t => {
   const card = document.createElement('div');
   card.className = 'template-card';
   card.innerHTML = `
-    <img src="${t.image}" alt="${t.name}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22300%22><rect fill=%22%230e0e14%22 width=%22200%22 height=%22300%22/><text x=%22100%22 y=%22150%22 text-anchor=%22middle%22 fill=%22%23666%22 font-size=%2214%22>${t.name}</text></svg>'">
+    <div class="preview" style="background-image:url('${t.image}')"></div>
     <div class="label">${t.name}</div>
   `;
   card.onclick = () => selectTemplate(t.id);
