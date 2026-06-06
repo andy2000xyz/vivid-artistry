@@ -283,6 +283,25 @@ h1 {
 </div>
 
 <script>
+// ── 防下载保护 ──
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('dragstart', e => e.preventDefault());
+document.addEventListener('copy', e => e.preventDefault());
+// 禁用键盘截图/保存快捷键
+document.addEventListener('keydown', e => {
+  if (e.key === 'F12' || 
+      (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
+      (e.ctrlKey && e.key === 'u') ||
+      (e.ctrlKey && e.key === 's') ||
+      (e.metaKey && e.key === 's')) {
+    e.preventDefault();
+  }
+});
+// 所有图片上禁止右键菜单
+document.querySelectorAll('img').forEach(img => {
+  img.addEventListener('contextmenu', e => e.preventDefault());
+  img.addEventListener('mousedown', e => { if (e.button === 0) return false; });
+});
 // ── Template data ──
 const TEMPLATES = [
   { id: 1, name: "Sweet Dreams", image: "/birthday-card/templates/template1_thumb.jpg" },
