@@ -358,6 +358,7 @@ function selectTemplate(id) {
   const t = TEMPLATES.find(t => t.id === id);
   selectedLabel.textContent = t ? `${t.name} · $9.99 USDT` : 'Select a template above';
   updateSubmitBtn();
+  document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
 }
 
 function updateSubmitBtn() {
