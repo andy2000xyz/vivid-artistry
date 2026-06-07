@@ -82,68 +82,6 @@ h1 {
 .step-desc { font-size: 11px; color: #888899; line-height: 1.6; }
 @media (max-width: 640px) { .steps { grid-template-columns: 1fr 1fr; } }
 
-/* Hero demo */
-.hero-demo {
-  width: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 48px;
-  border: 1px solid #2a2a3a;
-}
-.hero-demo img {
-  width: 100%;
-  display: block;
-  pointer-events: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-/* Style gallery */
-.section-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 22px;
-  font-weight: 400;
-  color: #ffffff;
-  margin-bottom: 6px;
-}
-.section-sub {
-  font-size: 12px;
-  color: #888899;
-  margin-bottom: 24px;
-}
-.demo-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin-bottom: 48px;
-}
-.demo-card {
-  background: #0e0e14;
-  border: 1px solid #1e1e2e;
-  border-radius: 6px;
-  overflow: hidden;
-}
-.demo-card .preview {
-  width: 100%;
-  aspect-ratio: 3/4;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  pointer-events: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-.demo-card .label {
-  padding: 10px 14px;
-  font-size: 11px;
-  color: #aaa;
-  letter-spacing: 0.05em;
-}
-@media (max-width: 800px) { .demo-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .demo-grid { grid-template-columns: 1fr 1fr; } }
-
 /* Features */
 .features {
   display: grid;
@@ -259,56 +197,8 @@ h1 {
   margin-bottom: 16px;
 }
 
-/* Scrolling showcase */
-.showcase-scroll {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  padding-bottom: 12px;
-  margin-bottom: 48px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-.showcase-scroll::-webkit-scrollbar { height: 4px; }
-.showcase-scroll::-webkit-scrollbar-track { background: #0e0e14; border-radius: 2px; }
-.showcase-scroll::-webkit-scrollbar-thumb { background: #2a2a3a; border-radius: 2px; }
-.showcase-item {
-  flex: 0 0 auto;
-  width: 280px;
-  scroll-snap-align: start;
-  background: #0e0e14;
-  border: 1px solid #1e1e2e;
-  border-radius: 6px;
-  overflow: hidden;
-}
-.showcase-item .preview {
-  width: 100%;
-  aspect-ratio: 3/4;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  pointer-events: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
-.showcase-item .label {
-  padding: 10px 14px;
-  font-size: 11px;
-  color: #aaa;
-  letter-spacing: 0.05em;
-}
-
-/* Before/after placeholder style */
-.comparison-note {
-  font-size: 11px;
-  color: #666677;
-  text-align: center;
-  padding: 12px;
-  margin-top: -32px;
-  margin-bottom: 48px;
-}
 </style>
+
 </head>
 <body>
 <div class="container">
@@ -318,11 +208,6 @@ h1 {
   <p class="subtitle">We place you side by side with Vivian in a single, seamless photo.<br>Send your photo, get a natural-looking composite delivered to your inbox.</p>
   <div class="price-badge">$14.99 USDT</div>
   <div class="divider"></div>
-
-  <!-- Hero demo -->
-  <div class="hero-demo">
-    <img src="demo1.jpg" alt="Composite example" loading="eager">
-  </div>
 
   <!-- How it works -->
   <div class="steps">
@@ -345,42 +230,6 @@ h1 {
       <div class="step-num">04</div>
       <div class="step-title">Receive</div>
       <div class="step-desc">Your photo delivered to your email within 48 hours</div>
-    </div>
-  </div>
-
-  <!-- Gallery: more examples -->
-  <div class="tag">Samples</div>
-  <h2 class="section-title">How It Looks</h2>
-  <p class="section-sub">Real composites — Vivian paired with different poses, outfits, and backgrounds</p>
-
-  <div class="showcase-scroll" id="demoScroll">
-    <div class="showcase-item">
-      <div class="preview" style="background-image:url('demo2.jpg')"></div>
-      <div class="label">Casual · Indoor</div>
-    </div>
-    <div class="showcase-item">
-      <div class="preview" style="background-image:url('demo3.jpg')"></div>
-      <div class="label">Elegant · Studio</div>
-    </div>
-    <div class="showcase-item">
-      <div class="preview" style="background-image:url('demo4.jpg')"></div>
-      <div class="label">Street · Urban</div>
-    </div>
-    <div class="showcase-item">
-      <div class="preview" style="background-image:url('demo5.jpg')"></div>
-      <div class="label">Intimate · Soft Light</div>
-    </div>
-    <div class="showcase-item">
-      <div class="preview" style="background-image:url('demo6.jpg')"></div>
-      <div class="label">Bold · Fashion</div>
-    </div>
-    <div class="showcase-item">
-      <div class="preview" style="background-image:url('demo7.jpg')"></div>
-      <div class="label">Night · Warm Tone</div>
-    </div>
-    <div class="showcase-item">
-      <div class="preview" style="background-image:url('demo8.jpg')"></div>
-      <div class="label">Couple · Natural</div>
     </div>
   </div>
 
