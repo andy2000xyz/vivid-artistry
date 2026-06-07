@@ -63,6 +63,91 @@ h1 {
 }
 .divider { width: 40px; height: 1px; background: #2a2a3a; margin-bottom: 40px; }
 
+/* ─── Compositing process visual ─── */
+.process-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 48px;
+}
+.process-step {
+  text-align: center;
+}
+.process-step .frame {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #0e0e14;
+  border: 1px solid #2a2a3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.process-step .frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.process-step .frame .placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  color: #555;
+}
+.process-step .frame .placeholder .icon {
+  font-size: 40px;
+  opacity: 0.5;
+}
+.process-step .frame .placeholder .label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #666677;
+}
+.process-step .step-label {
+  font-size: 11px;
+  color: #888899;
+  margin-top: 10px;
+  letter-spacing: 0.05em;
+}
+.process-plus {
+  font-size: 20px;
+  color: #444455;
+  padding: 0 12px;
+  text-align: center;
+}
+.process-eq {
+  font-size: 18px;
+  color: #d4a84b;
+  padding: 0 12px;
+  text-align: center;
+}
+@media (max-width: 640px) {
+  .process-row { grid-template-columns: 1fr auto 1fr; gap: 8px; }
+  .process-plus { font-size: 16px; padding: 0 6px; }
+  .process-eq { display: none; }
+  .process-step.last { display: none; }
+  .process-row::after {
+    content: '→';
+    color: #d4a84b;
+    font-size: 16px;
+    text-align: center;
+    display: none;
+  }
+}
+
 /* Steps */
 .steps {
   display: grid;
@@ -81,6 +166,60 @@ h1 {
 .step-title { font-size: 12px; font-weight: 500; margin-bottom: 6px; }
 .step-desc { font-size: 11px; color: #888899; line-height: 1.6; }
 @media (max-width: 640px) { .steps { grid-template-columns: 1fr 1fr; } }
+
+/* Gallery showcase */
+.section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+.section-sub {
+  font-size: 12px;
+  color: #888899;
+  margin-bottom: 24px;
+}
+.showcase-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  margin-bottom: 48px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.showcase-scroll::-webkit-scrollbar { height: 4px; }
+.showcase-scroll::-webkit-scrollbar-track { background: #0e0e14; border-radius: 2px; }
+.showcase-scroll::-webkit-scrollbar-thumb { background: #2a2a3a; border-radius: 2px; }
+.showcase-item {
+  flex: 0 0 auto;
+  width: 220px;
+  scroll-snap-align: start;
+  background: #0e0e14;
+  border: 1px solid #1e1e2e;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.showcase-item .preview {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: linear-gradient(145deg, #0e0e14, #1a1a28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  color: #444;
+}
+.showcase-item .preview .ph-icon { font-size: 28px; opacity: 0.3; }
+.showcase-item .preview .ph-text { font-size: 9px; color: #444455; letter-spacing: 0.08em; text-transform: uppercase; }
+.showcase-item .label {
+  padding: 10px 14px;
+  font-size: 11px;
+  color: #aaa;
+  letter-spacing: 0.05em;
+}
 
 /* Features */
 .features {
@@ -196,9 +335,7 @@ h1 {
   border-radius: 3px;
   margin-bottom: 16px;
 }
-
 </style>
-
 </head>
 <body>
 <div class="container">
@@ -209,7 +346,40 @@ h1 {
   <div class="price-badge">$14.99 USDT</div>
   <div class="divider"></div>
 
-  <!-- How it works -->
+  <!-- ─── Compositing process visual ─── -->
+  <div class="tag">How It Works</div>
+  <div class="process-row">
+    <div class="process-step">
+      <div class="frame">
+        <div class="placeholder">
+          <div class="label">Vivian</div>
+        </div>
+      </div>
+      <div class="step-label">Vivian's Photo</div>
+    </div>
+    <div class="process-plus">+</div>
+    <div class="process-step">
+      <div class="frame">
+        <div class="placeholder">
+          <div class="icon">?</div>
+          <div class="label">You</div>
+        </div>
+      </div>
+      <div class="step-label">Your Photo</div>
+    </div>
+    <div class="process-eq">=</div>
+    <div class="process-step last">
+      <div class="frame" style="border-color: rgba(212,168,75,0.3);">
+        <div class="placeholder">
+          <div class="icon" style="color: #d4a84b;">+</div>
+          <div class="label" style="color: #d4a84b;">Preview</div>
+        </div>
+      </div>
+      <div class="step-label" style="color: #d4a84b;">You &amp; Vivian</div>
+    </div>
+  </div>
+
+  <!-- How it works steps -->
   <div class="steps">
     <div class="step">
       <div class="step-num">01</div>
@@ -230,6 +400,42 @@ h1 {
       <div class="step-num">04</div>
       <div class="step-title">Receive</div>
       <div class="step-desc">Your photo delivered to your email within 48 hours</div>
+    </div>
+  </div>
+
+  <!-- Gallery: style showcase (placeholder cards) -->
+  <div class="tag">Styles</div>
+  <h2 class="section-title">Available Compositions</h2>
+  <p class="section-sub">Choose your preferred style — actual samples coming soon</p>
+
+  <div class="showcase-scroll">
+    <div class="showcase-item">
+      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
+      <div class="label">Casual · Indoor</div>
+    </div>
+    <div class="showcase-item">
+      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
+      <div class="label">Elegant · Studio</div>
+    </div>
+    <div class="showcase-item">
+      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
+      <div class="label">Street · Urban</div>
+    </div>
+    <div class="showcase-item">
+      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
+      <div class="label">Intimate · Soft Light</div>
+    </div>
+    <div class="showcase-item">
+      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
+      <div class="label">Bold · Fashion</div>
+    </div>
+    <div class="showcase-item">
+      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
+      <div class="label">Night · Warm Tone</div>
+    </div>
+    <div class="showcase-item">
+      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
+      <div class="label">Couple · Natural</div>
     </div>
   </div>
 
