@@ -116,10 +116,10 @@ h1 {
 .carousel-dot.active { background: #d4a84b; }
 
 @media (max-width: 640px) {
-  .process-row { grid-template-columns: 1fr auto 1fr; gap: 8px; }
-  .process-plus { font-size: 16px; padding: 0 6px; }
+  .process-row { grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .process-plus { display: none; }
   .process-eq { display: none; }
-  .process-step.last { display: none; }
+  .process-step.last { display: block; }
 }
 
 /* Steps */
