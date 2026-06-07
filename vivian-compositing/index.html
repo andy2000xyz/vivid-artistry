@@ -63,7 +63,7 @@ h1 {
 }
 .divider { width: 40px; height: 1px; background: #2a2a3a; margin-bottom: 40px; }
 
-/* ─── Compositing process visual ─── */
+/* ─── Process visual ─── */
 .process-row {
   display: grid;
   grid-template-columns: 1fr auto 1fr auto 1fr;
@@ -71,9 +71,7 @@ h1 {
   gap: 0;
   margin-bottom: 48px;
 }
-.process-step {
-  text-align: center;
-}
+.process-step { text-align: center; }
 .process-step .frame {
   width: 100%;
   aspect-ratio: 3/4;
@@ -81,9 +79,6 @@ h1 {
   overflow: hidden;
   background: #0e0e14;
   border: 1px solid #2a2a3a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
 }
 .process-step .frame img {
@@ -96,56 +91,35 @@ h1 {
   -webkit-user-select: none;
   user-select: none;
 }
-.process-step .frame .placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 8px;
-  color: #555;
-}
-.process-step .frame .placeholder .icon {
-  font-size: 40px;
-  opacity: 0.5;
-}
-.process-step .frame .placeholder .label {
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #666677;
-}
 .process-step .step-label {
   font-size: 11px;
   color: #888899;
   margin-top: 10px;
   letter-spacing: 0.05em;
 }
-.process-plus {
-  font-size: 20px;
-  color: #444455;
-  padding: 0 12px;
-  text-align: center;
+.process-plus { font-size: 20px; color: #444455; padding: 0 12px; text-align: center; }
+.process-eq { font-size: 18px; color: #d4a84b; padding: 0 12px; text-align: center; }
+
+/* Carousel dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 6px;
 }
-.process-eq {
-  font-size: 18px;
-  color: #d4a84b;
-  padding: 0 12px;
-  text-align: center;
+.carousel-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #2a2a3a;
+  transition: background 0.3s;
 }
+.carousel-dot.active { background: #d4a84b; }
+
 @media (max-width: 640px) {
   .process-row { grid-template-columns: 1fr auto 1fr; gap: 8px; }
   .process-plus { font-size: 16px; padding: 0 6px; }
   .process-eq { display: none; }
   .process-step.last { display: none; }
-  .process-row::after {
-    content: '→';
-    color: #d4a84b;
-    font-size: 16px;
-    text-align: center;
-    display: none;
-  }
 }
 
 /* Steps */
@@ -167,7 +141,7 @@ h1 {
 .step-desc { font-size: 11px; color: #888899; line-height: 1.6; }
 @media (max-width: 640px) { .steps { grid-template-columns: 1fr 1fr; } }
 
-/* Gallery showcase */
+/* Gallery */
 .section-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 22px;
@@ -201,19 +175,16 @@ h1 {
   border-radius: 6px;
   overflow: hidden;
 }
-.showcase-item .preview {
+.showcase-item img {
   width: 100%;
   aspect-ratio: 3/4;
-  background: linear-gradient(145deg, #0e0e14, #1a1a28);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 6px;
-  color: #444;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
-.showcase-item .preview .ph-icon { font-size: 28px; opacity: 0.3; }
-.showcase-item .preview .ph-text { font-size: 9px; color: #444455; letter-spacing: 0.08em; text-transform: uppercase; }
 .showcase-item .label {
   padding: 10px 14px;
   font-size: 11px;
@@ -346,36 +317,36 @@ h1 {
   <div class="price-badge">$14.99 USDT</div>
   <div class="divider"></div>
 
-  <!-- ─── Compositing process visual ─── -->
+  <!-- ─── Process visual ─── -->
   <div class="tag">How It Works</div>
   <div class="process-row">
     <div class="process-step">
-      <div class="frame">
-        <div class="placeholder">
-          <div class="label">Vivian</div>
-        </div>
+      <div class="frame" id="vivianFrame">
+        <img src="vivian.jpg" alt="Vivian" id="vivianImg">
       </div>
-      <div class="step-label">Vivian's Photo</div>
+      <div class="step-label">Vivian</div>
     </div>
     <div class="process-plus">+</div>
     <div class="process-step">
-      <div class="frame">
-        <div class="placeholder">
-          <div class="icon">?</div>
-          <div class="label">You</div>
-        </div>
+      <div class="frame" id="youFrame">
+        <img src="you-m.jpg" alt="You" id="youImg">
       </div>
-      <div class="step-label">Your Photo</div>
+      <div class="step-label">You</div>
+      <div class="carousel-dots" id="youDots">
+        <span class="carousel-dot active"></span>
+        <span class="carousel-dot"></span>
+      </div>
     </div>
     <div class="process-eq">=</div>
     <div class="process-step last">
-      <div class="frame" style="border-color: rgba(212,168,75,0.3);">
-        <div class="placeholder">
-          <div class="icon" style="color: #d4a84b;">+</div>
-          <div class="label" style="color: #d4a84b;">Preview</div>
-        </div>
+      <div class="frame" id="resultFrame" style="border-color: rgba(212,168,75,0.3);">
+        <img src="result-m.jpg" alt="You & Vivian" id="resultImg">
       </div>
       <div class="step-label" style="color: #d4a84b;">You &amp; Vivian</div>
+      <div class="carousel-dots" id="resultDots">
+        <span class="carousel-dot active"></span>
+        <span class="carousel-dot"></span>
+      </div>
     </div>
   </div>
 
@@ -403,41 +374,12 @@ h1 {
     </div>
   </div>
 
-  <!-- Gallery: style showcase (placeholder cards) -->
+  <!-- Gallery -->
   <div class="tag">Styles</div>
-  <h2 class="section-title">Available Compositions</h2>
-  <p class="section-sub">Choose your preferred style — actual samples coming soon</p>
+  <h2 class="section-title">Choose Your Style</h2>
+  <p class="section-sub">Browse the scenes — pick the vibe that fits you</p>
 
-  <div class="showcase-scroll">
-    <div class="showcase-item">
-      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
-      <div class="label">Casual · Indoor</div>
-    </div>
-    <div class="showcase-item">
-      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
-      <div class="label">Elegant · Studio</div>
-    </div>
-    <div class="showcase-item">
-      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
-      <div class="label">Street · Urban</div>
-    </div>
-    <div class="showcase-item">
-      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
-      <div class="label">Intimate · Soft Light</div>
-    </div>
-    <div class="showcase-item">
-      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
-      <div class="label">Bold · Fashion</div>
-    </div>
-    <div class="showcase-item">
-      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
-      <div class="label">Night · Warm Tone</div>
-    </div>
-    <div class="showcase-item">
-      <div class="preview"><div class="ph-icon">+</div><div class="ph-text">Coming Soon</div></div>
-      <div class="label">Couple · Natural</div>
-    </div>
-  </div>
+  <div class="showcase-scroll" id="styleGallery"></div>
 
   <!-- Features -->
   <div class="tag">What You Get</div>
@@ -445,7 +387,7 @@ h1 {
     <div class="feature">
       <div class="feature-icon">01</div>
       <div class="feature-title">Seamless Compositing</div>
-      <div class="feature-desc">AI-powered body detection, background matching, and lighting correction so the result looks like a real photo — not a cutout.</div>
+      <div class="feature-desc">AI-powered body detection and matching so the result looks like a real photo — not a cutout.</div>
     </div>
     <div class="feature">
       <div class="feature-icon">02</div>
@@ -454,8 +396,8 @@ h1 {
     </div>
     <div class="feature">
       <div class="feature-icon">03</div>
-      <div class="feature-title">Choice of Style</div>
-      <div class="feature-desc">We match your photo to the best Vivian composition — casual, elegant, street, or intimate.</div>
+      <div class="feature-title">Any Style, Any Vibe</div>
+      <div class="feature-desc">Casual date, black-tie gala, sunset stroll, or city night — we've got the scene.</div>
     </div>
     <div class="feature">
       <div class="feature-icon">04</div>
@@ -480,7 +422,6 @@ h1 {
       <button class="submit-btn" id="submitBtn" disabled>Complete the form</button>
     </div>
 
-    <!-- Status overlays -->
     <div class="status-overlay" id="loadingState">
       <div class="spinner"></div>
       <h3>Preparing your order...</h3>
@@ -501,10 +442,11 @@ h1 {
   </div>
 
   <div class="note">
-    <strong>How it works after payment:</strong><br>
-    1. We'll send you a confirmation email with instructions on how to submit your photo<br>
-    2. Send us your best solo shot (face clearly visible, good lighting preferred)<br>
-    3. We process the composite and deliver the final image to your email within 48 hours<br><br>
+    <strong>Photo guidelines for best results:</strong><br>
+    ✅ <strong>Best:</strong> Front-facing close-up or headshot — clear face, good lighting<br>
+    ✅ <strong>Good:</strong> Half-body photo (chest up) — will work in most scenes<br>
+    ❌ <strong>Not recommended:</strong> Full-body / distant shots — face too small for quality compositing<br><br>
+    <strong>After payment:</strong> We'll email you instructions to send your photo. Composite delivered within 48 hours.<br>
     <strong>Secure payment powered by NowPayments.</strong> Pay with USDT (TRC-20).<br>
     Need help? <a href="https://t.me/VividArtistry_bot" style="color:#d4a84b;text-decoration:none;">Contact us on Telegram</a>.
   </div>
@@ -527,6 +469,63 @@ document.addEventListener('keydown', e => {
   }
 });
 
+// ── Carousel ──
+const carousels = [
+  { images: ['you-m.jpg', 'you-f.jpg'], imgEl: document.getElementById('youImg'), dotsEl: document.getElementById('youDots') },
+  { images: ['result-m.jpg', 'result-f.jpg'], imgEl: document.getElementById('resultImg'), dotsEl: document.getElementById('resultDots') }
+];
+
+let carouselIdx = 0;
+carousels.forEach(c => {
+  c.imgEl.dataset.idx = 0;
+  c.dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => {
+    d.addEventListener('click', () => setCarousel(c, i));
+  });
+});
+
+function setCarousel(c, idx) {
+  c.imgEl.dataset.idx = idx;
+  c.imgEl.src = c.images[idx];
+  c.dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => {
+    d.classList.toggle('active', i === idx);
+  });
+}
+
+setInterval(() => {
+  carouselIdx = (carouselIdx + 1) % 2;
+  carousels.forEach(c => setCarousel(c, carouselIdx));
+}, 4000);
+
+// ── Style gallery ──
+const STYLES = [
+  { file: '乔心_2025-04-20_17.53.11_乔心_生日月_1_1780820524.jpg', label: '乔心 · Birthday' },
+  { file: '伤不起的大螃蟹座_2023-08-19_21.21.16_伤不起的大螃蟹座_他们说我更像NPC_1_1780814412.jpg', label: '大螃蟹 · Night Out' },
+  { file: '偷吃脆脆鲨_2025-01-18_18.48.20_偷吃脆脆鲨_夕阳_落叶_我俩_6_1780814445.jpg', label: '脆脆鲨 · Sunset Walk' },
+  { file: '十十十一_2023-04-25_20.33.47_十十十一_打卡澳门网红机位_4_1780814595.jpg', label: '十十十一 · Macau' },
+  { file: '周南儿_2022-11-17_18.16.48_周南儿_63760a10000000001f021169_6_1780820546.jpg', label: '周南儿 · Birthday' },
+  { file: '周南儿_2024-01-29_11.54.07_周南儿_终于轮到我过生日了_HBD_toooo_me_10_1780814506.jpg', label: '周南儿 · Cafe Date' },
+  { file: '周麟嘉_2022-08-30_22.00.11_周麟嘉_珠宝晚宴_2_1780820569.jpg', label: '周麟嘉 · Black Tie' },
+  { file: '幸儿Vanilla_2023-07-18_21.48.06_幸儿Vanilla_Candor_周五下班后去哪里？_7_1780820576.jpg', label: '幸儿 · After Work' },
+  { file: '幸儿Vanilla_2023-08-17_17.58.18_幸儿Vanilla_所有的好_都不如刚刚好_1_1780820607.jpg', label: '幸儿 · Golden Hour' },
+  { file: '张方形_2024-02-16_18.53.06_张方形_Lisa_红眼航班会惩罚每一个晚睡的人！！_2_1780820624.jpg', label: '张方形 · Airport' },
+  { file: '张棒棒无敌_2022-10-28_19.07.45_张棒棒无敌_相识12年_生日快乐_3_1780820776.jpg', label: '棒棒 · Besties' },
+  { file: '张棒棒无敌_2023-05-27_19.56.52_张棒棒无敌_ootd_choose_you_tonight_2_1780820800.jpg', label: '棒棒 · Night Out' },
+  { file: '张棒棒无敌_2023-07-12_20.44.22_张棒棒无敌_"每一岁_都珍贵_"_5_1780820811.jpg', label: '棒棒 · Birthday' },
+  { file: '珍妮_2025-02-02_23.36.38_珍妮_泰兰德_在郑王庙和父母拍一组大片_7_1780820828.jpg', label: '珍妮 · Thailand' },
+  { file: '章乐韵_2025-09-28_17.51.55_章乐韵_life_plog_忙碌但是很幸福的9月_3_1780820842.jpg', label: '乐韵 · Daily Plog' },
+  { file: '赵三观_2024-01-14_13.26.51_赵三观_YSL2024晚宴_三观和她的朋友们_9_1780820853.jpg', label: '三观 · YSL Gala' },
+  { file: '赵三观_2024-04-10_14.23.51_赵三观_追星成功_1_1780820866.jpg', label: '三观 · Fan Meet' }
+];
+
+const gallery = document.getElementById('styleGallery');
+STYLES.forEach(s => {
+  const item = document.createElement('div');
+  item.className = 'showcase-item';
+  item.innerHTML = '<img src="' + s.file + '" alt="' + s.label + '" loading="lazy">' +
+    '<div class="label">' + s.label + '</div>';
+  gallery.appendChild(item);
+});
+
 // ── Config ──
 const WORKER_URL = 'https://vivid-purchase.jianfeng-li1008.workers.dev';
 
@@ -540,13 +539,12 @@ function updateSubmitBtn() {
   const email = emailInput.value.trim();
   const valid = name.length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   submitBtn.disabled = !valid;
-  submitBtn.textContent = valid ? `PAY $14.99 USDT →` : 'Complete the form';
+  submitBtn.textContent = valid ? 'PAY $14.99 USDT →' : 'Complete the form';
 }
 
 nameInput.addEventListener('input', updateSubmitBtn);
 emailInput.addEventListener('input', updateSubmitBtn);
 
-// ── Form submission ──
 function showState(state) {
   ['loadingState', 'successState', 'errorState'].forEach(id => {
     document.getElementById(id).classList.toggle('visible', id === state + 'State');
@@ -556,38 +554,20 @@ function showState(state) {
 
 document.getElementById('submitBtn').addEventListener('click', async function() {
   if (this.disabled) return;
-
   const name = nameInput.value.trim();
   const email = emailInput.value.trim();
-
   showState('loading');
-
   try {
     const resp = await fetch(WORKER_URL + '/api/create-order', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        product: 'compositing',
-        email: email,
-        name: name
-      })
+      body: JSON.stringify({ product: 'compositing', email, name })
     });
-
     const data = await resp.json();
-
-    if (!resp.ok || !data.invoice_url) {
-      throw new Error(data.error || 'Failed to create order');
-    }
-
+    if (!resp.ok || !data.invoice_url) throw new Error(data.error || 'Failed to create order');
     showState('success');
-    document.getElementById('successMessage').textContent =
-      `Order #${data.order_id} created! Redirecting to payment...`;
-
-    // Redirect to NowPayments
-    setTimeout(() => {
-      window.location.href = data.invoice_url;
-    }, 1500);
-
+    document.getElementById('successMessage').textContent = 'Order #' + data.order_id + ' created! Redirecting to payment...';
+    setTimeout(() => { window.location.href = data.invoice_url; }, 1500);
   } catch (err) {
     showState('error');
     document.getElementById('errorMessage').textContent = err.message || 'Something went wrong. Please try again.';
