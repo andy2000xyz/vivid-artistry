@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Private Chat — VIVIAN STUDIO</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, 'Helvetica Neue', sans-serif;
+  background: #06060a;
+  color: #f0ece4;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -webkit-touch-callout: none;
+}
+.container { max-width: 800px; margin: 0 auto; padding: 48px 24px 60px; }
+
+.back {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 11px;
+  color: #666677;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: color 0.2s;
+  margin-bottom: 24px;
+}
+.back:hover { color: #d4a84b; }
+
+/* Hero */
+.hero {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 44px;
+  background: #0e0e14;
+  border: 1px solid #2a2a3a;
+}
+.hero-image {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+@media (max-width: 640px) { .hero-image { height: 300px; } }
+.hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 80px 40px 36px;
+  background: linear-gradient(transparent, rgba(6,6,10,0.92) 60%);
+}
+.hero-overlay .brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #d4a84b;
+  margin-bottom: 8px;
+}
+.hero-overlay h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 38px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.15;
+  max-width: 500px;
+}
+.hero-overlay .hero-tagline {
+  font-size: 13px;
+  color: #b0b0bb;
+  margin-top: 10px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Intro */
+.intro {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+.intro p {
+  font-size: 14px;
+  color: #888899;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.intro .divider-icon { font-size: 16px; color: #d4a84b; opacity: 0.4; }
+
+/* Offer card */
+.offer-card {
+  background: linear-gradient(180deg, #0e0e18, #0a0a12);
+  border: 1px solid #d4a84b;
+  border-radius: 10px;
+  padding: 44px 36px;
+  margin-bottom: 44px;
+  text-align: center;
+}
+.offer-card .time {
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #d4a84b;
+  margin-bottom: 4px;
+}
+.offer-card .price {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 54px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.offer-card .price .cur { font-size: 16px; color: #888899; }
+.offer-card .label {
+  font-size: 12px;
+  color: #b0b0bb;
+  margin-bottom: 16px;
+}
+.offer-card .desc {
+  font-size: 13px;
+  color: #888899;
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 28px;
+  font-weight: 300;
+}
+.offer-card .cta-btn {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #06060a;
+  background: #d4a84b;
+  padding: 14px 44px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+.offer-card .cta-btn:hover { background: #e8c062; transform: translateY(-1px); }
+.offer-card .cta-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* Section titles */
+.section-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.section-title .gold { color: #d4a84b; }
+.divider { width: 40px; height: 1px; background: #2a2a3a; margin: 0 auto 32px; }
+
+/* Steps */
+.steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+@media (max-width: 640px) { .steps { grid-template-columns: 1fr 1fr; } }
+.step-card {
+  background: #0e0e14;
+  border: 1px solid #1e1e2e;
+  border-radius: 8px;
+  padding: 24px 20px;
+  text-align: center;
+}
+.step-card .num {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26px;
+  color: #d4a84b;
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+.step-card .title { font-size: 12px; font-weight: 500; margin-bottom: 6px; }
+.step-card .desc { font-size: 11px; color: #888899; line-height: 1.6; font-weight: 300; }
+
+/* Guidelines */
+.guidelines {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+@media (max-width: 640px) { .guidelines { grid-template-columns: 1fr; } }
+.guideline {
+  background: #0e0e14;
+  border: 1px solid #1e1e2e;
+  border-radius: 6px;
+  padding: 20px 24px;
+}
+.guideline .icon { font-size: 16px; margin-bottom: 8px; }
+.guideline h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+.guideline p { font-size: 11px; color: #888899; line-height: 1.7; font-weight: 300; }
+
+/* FAQ */
+.faq { margin-bottom: 48px; }
+.faq-item {
+  background: #0e0e14;
+  border: 1px solid #1e1e2e;
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin-bottom: 8px;
+}
+.faq-item .q { font-size: 13px; font-weight: 500; color: #f0ece4; margin-bottom: 6px; }
+.faq-item .a { font-size: 12px; color: #888899; line-height: 1.7; font-weight: 300; }
+
+/* Footer */
+.note {
+  font-size: 10px;
+  color: #555566;
+  line-height: 1.8;
+  text-align: center;
+  border-top: 1px solid #1e1e2e;
+  padding-top: 24px;
+}
+.note strong { color: #666677; font-weight: 400; }
+
+/* Status overlay */
+.status-overlay {
+  display: none;
+  text-align: center;
+  padding: 60px 32px;
+  background: #0e0e14;
+  border: 1px solid #2a2a3a;
+  border-radius: 10px;
+  margin-bottom: 44px;
+}
+.status-overlay.visible { display: block; }
+.status-overlay .icon { font-size: 48px; margin-bottom: 16px; }
+.status-overlay h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; font-weight: 400; color: #ffffff; margin-bottom: 8px; }
+.status-overlay p { font-size: 13px; color: #888899; margin-bottom: 24px; line-height: 1.7; }
+.spinner { width: 40px; height: 40px; border: 3px solid #2a2a3a; border-top: 3px solid #d4a84b; border-radius: 50%; margin: 0 auto 24px; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <a href="/" class="back">← Home</a>
+
+  <!-- Hero -->
+  <div class="hero">
+    <img class="hero-image" src="/private-chat/hero.jpg" alt="Vivian">
+    <div class="hero-overlay">
+      <div class="brand">VIVIAN STUDIO</div>
+      <h1>Private Chat</h1>
+      <div class="hero-tagline">one hour. your words, her voice.</div>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <div class="intro">
+    <p>A private one-on-one voice session with Vivian. After payment, you receive her Telegram QR code — add her, schedule your time, and begin. Send text or voice messages. She replies in her own voice.</p>
+    <div class="divider-icon">✦</div>
+  </div>
+
+  <!-- Offer -->
+  <div class="offer-card" id="offerSection">
+    <div class="time">One Hour · Private Session</div>
+    <div class="price">$499 <span class="cur">USD</span></div>
+    <div class="label">voice-to-voice · your space · mutual respect</div>
+    <p class="desc">
+      Pay once, receive Vivian's Telegram QR code by email. Add her, pick your time together, and when your hour begins — she's there, listening and responding in voice.
+    </p>
+    <button class="cta-btn" id="bookBtn">Book Your Session →</button>
+  </div>
+
+  <!-- Status overlay (hidden initially) -->
+  <div class="status-overlay" id="statusOverlay">
+    <div class="spinner" id="loadingSpinner"></div>
+    <div class="icon" id="statusIcon" style="display:none;">✅</div>
+    <h3 id="statusTitle">Processing...</h3>
+    <p id="statusMsg">Please wait while we prepare your session.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Steps -->
+  <h2 class="section-title">How It <span class="gold">Works</span></h2>
+  <div class="steps">
+    <div class="step-card">
+      <div class="num">01</div>
+      <div class="title">Book & Pay</div>
+      <div class="desc">Secure your session. Vivian's Telegram QR code will be emailed to you.</div>
+    </div>
+    <div class="step-card">
+      <div class="num">02</div>
+      <div class="title">Add Vivian</div>
+      <div class="desc">Scan the QR code and add Vivian on Telegram. Agree on a time together.</div>
+    </div>
+    <div class="step-card">
+      <div class="num">03</div>
+      <div class="title">Your Hour</div>
+      <div class="desc">Send text or voice messages. Vivian replies with her voice.</div>
+    </div>
+    <div class="step-card">
+      <div class="num">04</div>
+      <div class="title">Beyond</div>
+      <div class="desc">Good connection? Discuss longer arrangements directly with Vivian.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Guidelines -->
+  <h2 class="section-title">Session <span class="gold">Guidelines</span></h2>
+  <div class="guidelines">
+    <div class="guideline">
+      <div class="icon">🤝</div>
+      <h3>Mutual Respect</h3>
+      <p>Every conversation is built on mutual respect. Both parties deserve to feel safe and valued.</p>
+    </div>
+    <div class="guideline">
+      <div class="icon">⚖️</div>
+      <h3>Legal Boundaries</h3>
+      <p>Please keep conversations within legal limits. Content that crosses this line will not be engaged.</p>
+    </div>
+    <div class="guideline">
+      <div class="icon">🎙️</div>
+      <h3>Voice Replies</h3>
+      <p>You choose text or voice. Vivian always replies in her own voice.</p>
+    </div>
+    <div class="guideline">
+      <div class="icon">📱</div>
+      <h3>Not a Phone Call</h3>
+      <p>This is a voice message conversation on Telegram, not a live phone or video call.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FAQ -->
+  <h2 class="section-title">Questions <span class="gold">?</span></h2>
+  <div class="faq">
+    <div class="faq-item">
+      <div class="q">How do I get Vivian's Telegram?</div>
+      <div class="a">After payment is confirmed, a QR code is sent to your email. Scan it to add Vivian directly and schedule your session.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">How does the session actually work?</div>
+      <div class="a">During your reserved hour, you send messages however you like (text or voice). Vivian listens and replies with voice messages — a real conversation, at your pace.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">What can we talk about?</div>
+      <div class="a">Anything within legal and respectful bounds. Share your stories, ask questions — this is your space. Vivian may end sessions that breach mutual respect or legal limits.</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Can we continue beyond one hour?</div>
+      <div class="a">If both sides feel a connection, longer arrangements can be discussed directly with Vivian after the session.</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>VIVIAN STUDIO</strong> · Private Archive · $499 USD · BTC via NowPayments · Telegram delivery · No returns
+  </div>
+
+</div>
+
+<script>
+const API_URL = 'https://purchase.vividartistry.workers.dev';
+
+document.getElementById('bookBtn').addEventListener('click', async function(e) {
+  const btn = this;
+  btn.disabled = true;
+  btn.textContent = 'Processing...';
+
+  const email = prompt('Enter your email address to receive Vivian\\'s Telegram QR code:');
+  if (!email || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+    alert('Please enter a valid email address.');
+    btn.disabled = false;
+    btn.textContent = 'Book Your Session →';
+    return;
+  }
+
+  // Show loading state
+  document.getElementById('offerSection').style.display = 'none';
+  const overlay = document.getElementById('statusOverlay');
+  overlay.classList.add('visible');
+  document.getElementById('loadingSpinner').style.display = 'block';
+  document.getElementById('statusIcon').style.display = 'none';
+  document.getElementById('statusTitle').textContent = 'Creating your invoice...';
+  document.getElementById('statusMsg').textContent = 'Please wait while we set up your session.';
+
+  try {
+    const resp = await fetch(API_URL + '/api/create-order', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        product: 'private-chat'
+      })
+    });
+
+    const data = await resp.json();
+    if (!data.success) throw new Error(data.error || 'Failed to create order');
+
+    // Redirect to NowPayments invoice
+    document.getElementById('statusTitle').textContent = 'Redirecting to payment...';
+    document.getElementById('statusMsg').textContent = 'You will be redirected to BTC payment via NowPayments.';
+    window.location.href = data.invoice_url;
+  } catch (err) {
+    overlay.classList.remove('visible');
+    document.getElementById('offerSection').style.display = 'block';
+    alert('Error: ' + err.message + '\\n\\nPlease contact us on Telegram @VividArtistry_bot');
+    btn.disabled = false;
+    btn.textContent = 'Book Your Session →';
+  }
+});
+
+// Show success message if redirected back
+if (window.location.search.includes('success=true')) {
+  document.getElementById('offerSection').style.display = 'none';
+  const overlay = document.getElementById('statusOverlay');
+  overlay.classList.add('visible');
+  document.getElementById('loadingSpinner').style.display = 'none';
+  document.getElementById('statusIcon').style.display = 'block';
+  document.getElementById('statusIcon').textContent = '✅';
+  document.getElementById('statusTitle').textContent = 'Payment successful!';
+  document.getElementById('statusMsg').innerHTML = 'Your session has been booked. Check your email for Vivian\\'s Telegram QR code and greeting.<br><br>If you don\\'t receive it within 30 minutes, please contact us on Telegram @VividArtistry_bot';
+}
+</script>
+</body>
+</html>
