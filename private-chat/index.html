@@ -389,8 +389,8 @@ document.getElementById('bookBtn').addEventListener('click', async function(e) {
   btn.disabled = true;
   btn.textContent = 'Processing...';
 
-  const email = prompt('Enter your email address to receive Vivian\\'s Telegram QR code:');
-  if (!email || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+  const email = prompt('Enter your email address to receive Vivian\'s Telegram QR code:');
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     alert('Please enter a valid email address.');
     btn.disabled = false;
     btn.textContent = 'Book Your Session →';
@@ -426,7 +426,7 @@ document.getElementById('bookBtn').addEventListener('click', async function(e) {
   } catch (err) {
     overlay.classList.remove('visible');
     document.getElementById('offerSection').style.display = 'block';
-    alert('Error: ' + err.message + '\\n\\nPlease contact us on Telegram @VividArtistry_bot');
+    alert('Error: ' + err.message + '\n\nPlease contact us on Telegram @VividArtistry_bot');
     btn.disabled = false;
     btn.textContent = 'Book Your Session →';
   }
@@ -441,7 +441,7 @@ if (window.location.search.includes('success=true')) {
   document.getElementById('statusIcon').style.display = 'block';
   document.getElementById('statusIcon').textContent = '✅';
   document.getElementById('statusTitle').textContent = 'Payment successful!';
-  document.getElementById('statusMsg').innerHTML = 'Your session has been booked. Check your email for Vivian\\'s Telegram QR code and greeting.<br><br>If you don\\'t receive it within 30 minutes, please contact us on Telegram @VividArtistry_bot';
+  document.getElementById('statusMsg').innerHTML = 'Your session has been booked. Check your email for Vivian\'s Telegram QR code and greeting.<br><br>If you don\'t receive it within 30 minutes, please contact us on Telegram @VividArtistry_bot';
 }
 </script>
 
