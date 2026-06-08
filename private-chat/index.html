@@ -47,13 +47,13 @@ body {
   width: 100%;
   height: 420px;
   object-fit: cover;
-  object-position: center 12%;
+  object-position: center top;
   display: block;
   pointer-events: none;
   -webkit-user-select: none;
   user-select: none;
 }
-@media (max-width: 640px) { .hero-image { height: 300px; } }
+@media (max-width: 640px) { .hero-image { height: 340px; object-position: center 20%; } }
 .hero-overlay {
   position: absolute;
   bottom: 0;
@@ -457,11 +457,10 @@ i._rp=1;
 var d=document.createElement('div');
 d.style.backgroundImage='url("'+s.replace(/"/g,'\\"')+'")';
 d.style.backgroundSize='cover';
-d.style.backgroundPosition='center 12%';
+d.style.backgroundPosition=window.innerWidth<=640?'center 20%':'center top';
 d.style.backgroundRepeat='no-repeat';
 d.style.width='100%';
-d.style.height='420px';
-d.style.aspectRatio=w+'/'+h;
+d.style.height=window.innerWidth<=640?'340px':'420px';
 d.style.display='block';
 d.style.pointerEvents='none';
 d.style.userSelect='none';
