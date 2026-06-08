@@ -143,7 +143,21 @@ h1 {
   text-transform: uppercase;
   margin-bottom: 6px;
 }
-.form-group input {
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: #0e0e18;
+  border: 1px solid #2a2a3a;
+  border-radius: 4px;
+  color: #e0dcd4;
+  font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  resize: vertical;
+  min-height: 48px;
+  transition: border-color 0.2s;
+}
+.form-group textarea:focus { outline: none; border-color: #d4a84b; }
+.form-group textarea::placeholder { color: #555566; }
   width: 100%;
   background: #06060a;
   border: 1px solid #2a2a3a;
@@ -265,6 +279,10 @@ h1 {
         <label>YOUR EMAIL</label>
         <input type="email" id="emailInput" placeholder="Where should we send your card?" required>
       </div>
+      <div class="form-group">
+        <label>BLESSING (optional)</label>
+        <textarea id="messageInput" placeholder="Write your birthday wish (e.g. Happy Birthday! Wishing you all the love and joy in the world!)" maxlength="200" rows="2"></textarea>
+      </div>
       <button class="submit-btn" id="submitBtn" disabled>SELECT A TEMPLATE FIRST</button>
     </div>
 
@@ -290,9 +308,9 @@ h1 {
   <div class="note">
     <strong>💡 How it works:</strong><br>
     1. Pick your favorite template<br>
-    2. Enter your name &mdash; it will appear on the card<br>
+    2. Enter your name and a birthday wish<br>
     3. Pay with cryptocurrency (USDT) via NowPayments<br>
-    4. Your personalized birthday card will be delivered to your email within minutes
+    4. Your personalized birthday card with your message will be delivered to your email within minutes
   </div>
 
   <div class="footer">VIVIAN STUDIO &copy; 2026</div>
@@ -367,6 +385,7 @@ let selectedTemplate = null;
 const grid = document.getElementById('templateGrid');
 const nameInput = document.getElementById('nameInput');
 const emailInput = document.getElementById('emailInput');
+const messageInput = document.getElementById('messageInput');
 const submitBtn = document.getElementById('submitBtn');
 const orderForm = document.getElementById('order-form');
 const selectedLabel = document.getElementById('selectedTemplate');
@@ -404,6 +423,7 @@ function updateSubmitBtn() {
 
 nameInput.addEventListener('input', updateSubmitBtn);
 emailInput.addEventListener('input', updateSubmitBtn);
+messageInput.addEventListener('input', updateSubmitBtn);
 
 // ── Form submission ──
 function showState(state) {
@@ -429,6 +449,7 @@ document.getElementById('submitBtn').addEventListener('click', async function() 
         product: 'birthday',
         email: email,
         name: name,
+        message: messageInput.value.trim(),
         template: selectedTemplate
       })
     });
