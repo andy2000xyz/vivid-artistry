@@ -287,6 +287,7 @@ body {
     <p class="desc">
       Pay once, receive Vivian's Telegram QR code by email. Add her, pick your time together, and when your hour begins — she's there, listening and responding in voice.
     </p>
+    <div style="font-size:10px;color:#555566;margin-top:12px;">⚡ Also accepts USDT (TRC-20) · Pay with BTC or USDT via NowPayments</div>
     <button class="cta-btn" id="bookBtn">Book Your Session →</button>
   </div>
 
@@ -376,7 +377,7 @@ body {
   </div>
 
   <div class="note">
-    <strong>VIVIAN STUDIO</strong> · Private Archive · $499 USD · BTC via NowPayments · Telegram delivery · No returns
+    <strong>VIVIAN STUDIO</strong> · Private Archive · $499 USD · BTC / USDT (TRC-20) via NowPayments · Telegram delivery · No returns
   </div>
 
 </div>
@@ -421,7 +422,7 @@ document.getElementById('bookBtn').addEventListener('click', async function(e) {
 
     // Redirect to NowPayments invoice
     document.getElementById('statusTitle').textContent = 'Redirecting to payment...';
-    document.getElementById('statusMsg').textContent = 'You will be redirected to BTC payment via NowPayments.';
+    document.getElementById('statusMsg').textContent = 'You will be redirected to secure payment via NowPayments (BTC / USDT TRC-20).';
     window.location.href = data.invoice_url;
   } catch (err) {
     overlay.classList.remove('visible');
