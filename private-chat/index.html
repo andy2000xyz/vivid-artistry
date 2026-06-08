@@ -6,6 +6,9 @@
 <title>Private Chat — VIVIAN STUDIO</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+/* image-protect */
+img { pointer-events: none; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+body { -webkit-touch-callout: none; }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -441,5 +444,50 @@ if (window.location.search.includes('success=true')) {
   document.getElementById('statusMsg').innerHTML = 'Your session has been booked. Check your email for Vivian\\'s Telegram QR code and greeting.<br><br>If you don\\'t receive it within 30 minutes, please contact us on Telegram @VividArtistry_bot';
 }
 </script>
+
+<!-- img-protect-js -->
+<script>
+(function(){
+function p(){
+document.querySelectorAll('.hero-image').forEach(function(i){
+if(i._rp)return;
+var s=i.currentSrc||i.src,w=i.naturalWidth,h=i.naturalHeight;
+if(!s||!w||!h)return;
+i._rp=1;
+var d=document.createElement('div');
+d.style.backgroundImage='url("'+s.replace(/"/g,'\\"')+'")';
+d.style.backgroundSize='cover';
+d.style.backgroundPosition='center 30%';
+d.style.backgroundRepeat='no-repeat';
+d.style.width='100%';
+d.style.height='420px';
+d.style.aspectRatio=w+'/'+h;
+d.style.display='block';
+d.style.pointerEvents='none';
+d.style.userSelect='none';
+d.style.webkitTouchCallout='none';
+i.parentNode.replaceChild(d,i)
+})}
+document.addEventListener('DOMContentLoaded',p);
+window.addEventListener('load',p);
+})();
+</script>
+
+<!-- anti-download -->
+<script>
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('dragstart', e => e.preventDefault());
+document.addEventListener('copy', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+  if (e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
+      (e.ctrlKey && e.key === 'u') ||
+      (e.ctrlKey && e.key === 's') ||
+      (e.metaKey && e.key === 's')) {
+    e.preventDefault();
+  }
+});
+</script>
+
 </body>
 </html>
