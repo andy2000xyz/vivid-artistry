@@ -153,9 +153,9 @@ body {
   .spread .columns { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
 }
-</style>
+/* image-protect */img{pointer-events:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}</style>
 </head>
-<body>
+<body oncontextmenu="return false">
 
     <style>
     .preview-ribbon{position:fixed;top:30px;right:-36px;z-index:9998;background:rgba(196,74,71,0.92);color:#fff;font:11px/1 var(--mono);letter-spacing:0.15em;padding:6px 50px;transform:rotate(45deg);text-transform:uppercase;backdrop-filter:blur(4px);pointer-events:none;user-select:none}
@@ -244,5 +244,30 @@ body {
       </div>
     </div>
 
+<!-- img-protect-js --><script>
+(function(){
+function p(){
+document.querySelectorAll('.page img,.image-block img,.spread img,.full-image img').forEach(function(i){
+if(i._rp)return;
+var s=i.currentSrc||i.src,w=i.naturalWidth,h=i.naturalHeight;
+if(!s||!w||!h)return;
+i._rp=1;
+var d=document.createElement('div');
+d.style.backgroundImage='url("'+s.replace(/"/g,'\"')+'")';
+d.style.backgroundSize='contain';
+d.style.backgroundPosition='center';
+d.style.backgroundRepeat='no-repeat';
+d.style.width='100%';
+d.style.display='block';
+d.style.aspectRatio=w+'/'+h;
+d.style.pointerEvents='none';
+d.style.userSelect='none';
+d.style.webkitTouchCallout='none';
+i.parentNode.replaceChild(d,i)
+})}
+document.addEventListener('DOMContentLoaded',p);
+window.addEventListener('load',p);
+})();
+</script>
 </body>
 </html>
