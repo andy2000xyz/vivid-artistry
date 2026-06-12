@@ -62,7 +62,11 @@ export default {
             };
             const cfg = priceMap[product] || { label: 'Private Chat' };
             if (email) {
-              // 用 BOT_TOKEN 发给用户（或直接发邮件）
+              // 发送 TG 通知给管理员
+              if (env.TG_BOT_TOKEN && env.TG_ADMIN_ID) {
+                await sendTelegramNotification(env.TG_BOT_TOKEN, env.TG_ADMIN_ID,
+                  `🆕 *New Private Chat Booking*\nPlan: ${cfg.label}\nEmail: \`${email}\`\nOrder: \`${order_id}\``);
+              }
               if (env.NOTIFY_EMAIL) {
                 await sendEmail(env.RESEND_API_KEY, env.FROM_EMAIL, env.NOTIFY_EMAIL,
                   'NEW SALE: Private Chat — ' + cfg.label,
@@ -144,6 +148,20 @@ async function sendEmail(key, from, to, subject, html) {
     body: JSON.stringify({ from: 'VIVIAN STUDIO <' + from + '>', to: [to], subject, html })
   });
   if (!r.ok) { const e = await r.text(); console.error('Resend:', e); throw new Error('Email: ' + e); }
+}
+
+/** 发送 TG 通知给管理员 */
+async function sendTelegramNotification(botToken, chatId, text) {
+  const r = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      chat_id: parseInt(chatId),
+      text: text,
+      parse_mode: 'Markdown'
+    })
+  });
+  if (!r.ok) { const e = await r.text(); console.error('TG notify:', e); }
 }
 
 /** 写真集下载邮件（原有） */

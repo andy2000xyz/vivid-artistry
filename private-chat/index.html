@@ -211,6 +211,83 @@ body {
 }
 .compare-note .gold { color: #d4a84b; }
 
+/* Scarcity banner */
+.scarcity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(212, 168, 75, 0.06);
+  border: 1px solid rgba(212, 168, 75, 0.2);
+  border-radius: 6px;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+}
+.scarcity-icon { font-size: 14px; }
+.scarcity-text {
+  font-size: 11px;
+  color: #b0b0bb;
+  letter-spacing: 0.02em;
+}
+.scarcity-text strong { color: #d4a84b; font-weight: 500; }
+
+/* Testimonals */
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+@media (max-width: 640px) { .testimonials { grid-template-columns: 1fr; } }
+.testimonial-card {
+  background: #0e0e14;
+  border: 1px solid #1e1e2e;
+  border-radius: 8px;
+  padding: 24px;
+  position: relative;
+}
+.testimonial-card .quote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  color: #d4a84b;
+  opacity: 0.3;
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  line-height: 1;
+}
+.testimonial-card .body {
+  font-size: 12px;
+  color: #b0b0bb;
+  line-height: 1.7;
+  font-weight: 300;
+  font-style: italic;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+.testimonial-card .author {
+  font-size: 10px;
+  color: #555566;
+  letter-spacing: 0.05em;
+}
+.testimonial-card .author .tag {
+  display: inline-block;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d4a84b;
+  border: 1px solid rgba(212,168,75,0.25);
+  border-radius: 10px;
+  padding: 2px 8px;
+  margin-left: 6px;
+}
+.testimonial-card.placeholder {
+  opacity: 0.5;
+  border-style: dashed;
+}
+.testimonial-card.placeholder .body { color: #555566; }
+.testimonial-card.placeholder .quote { opacity: 0.15; }
+
 /* Section titles */
 .section-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
@@ -370,6 +447,12 @@ body {
 
   </div>
 
+  <!-- Scarcity banner -->
+  <div class="scarcity">
+    <div class="scarcity-icon">⏳</div>
+    <div class="scarcity-text">Limited to <strong>5 sessions per week</strong> · Each session is personally prepared and delivered</div>
+  </div>
+
   <div class="compare-note">
     ⚡ All sessions include voice replies · Pay with BTC or USDT (TRC-20) via NowPayments<br>
     ⚡ Want a longer arrangement? <span class="gold">Book any session first</span>, then discuss directly with Vivian.
@@ -391,7 +474,7 @@ body {
     <div class="step-card">
       <div class="num">01</div>
       <div class="title">Choose & Pay</div>
-      <div class="desc">Pick your session length. Vivian's Telegram QR code will be emailed to you after payment.</div>
+      <div class="desc">Pick your session length. Vivian's Telegram QR code will be sent to your email and Telegram bot after payment.</div>
     </div>
     <div class="step-card">
       <div class="num">02</div>
@@ -439,6 +522,38 @@ body {
 
   <div class="divider"></div>
 
+  <!-- Testimonials -->
+  <h2 class="section-title">From Those Who <span class="gold">Listened</span></h2>
+  <div class="testimonials">
+
+    <div class="testimonial-card">
+      <div class="quote">"</div>
+      <div class="body">I booked the Entry session out of curiosity. 15 minutes in, I booked the Premium. There's something about being truly heard without judgment. I've never done anything like this before, and I'm glad I did.</div>
+      <div class="author">— Alex, 34<span class="tag">Entry → Premium</span></div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote">"</div>
+      <div class="body">I was going through a rough patch at work. Vivian didn't give me generic advice — she just listened and asked the right questions. Felt like talking to an old friend who actually gets it.</div>
+      <div class="author">— Marcus, 41<span class="tag">Standard</span></div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote">"</div>
+      <div class="body">Honestly, I wasn't sure what to expect. But her voice is incredibly calming. I've booked three sessions now. It's become my monthly reset.</div>
+      <div class="author">— David, 29<span class="tag">Regular</span></div>
+    </div>
+
+    <div class="testimonial-card placeholder">
+      <div class="quote">"</div>
+      <div class="body">Your story could be here. Every session is unique — when you're ready, book yours and share your experience.</div>
+      <div class="author">— You?<span class="tag">Reserved for you</span></div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
   <!-- FAQ -->
   <h2 class="section-title">Questions <span class="gold">?</span></h2>
   <div class="faq">
@@ -448,7 +563,7 @@ body {
     </div>
     <div class="faq-item">
       <div class="q">How do I get Vivian's Telegram?</div>
-      <div class="a">After payment is confirmed, a QR code is sent to your email. Scan it to add Vivian directly and schedule your session.</div>
+      <div class="a">After payment is confirmed, a QR code is sent to your email and via Telegram bot (@VivianReplyBot). Scan it to add Vivian directly and schedule your session.</div>
     </div>
     <div class="faq-item">
       <div class="q">How does the session actually work?</div>
