@@ -85,6 +85,7 @@ body {
   font-weight: 300;
   line-height: 1.6;
 }
+.hero-overlay .hero-tagline strong { color: #d4a84b; font-weight: 400; }
 
 /* Intro */
 .intro {
@@ -100,61 +101,115 @@ body {
 }
 .intro .divider-icon { font-size: 16px; color: #d4a84b; opacity: 0.4; }
 
-/* Offer card */
-.offer-card {
-  background: linear-gradient(180deg, #0e0e18, #0a0a12);
-  border: 1px solid #d4a84b;
-  border-radius: 10px;
-  padding: 44px 36px;
+/* Pricing grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
   margin-bottom: 44px;
+}
+@media (max-width: 700px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+.plan-card {
+  background: linear-gradient(180deg, #0e0e18, #0a0a12);
+  border: 1px solid #1e1e2e;
+  border-radius: 10px;
+  padding: 32px 24px;
   text-align: center;
+  position: relative;
+  transition: border-color 0.3s;
 }
-.offer-card .time {
-  font-size: 10px;
-  letter-spacing: 0.35em;
+.plan-card.featured {
+  border-color: #d4a84b;
+  transform: scale(1.03);
+  z-index: 1;
+}
+@media (max-width: 700px) { .plan-card.featured { transform: none; } }
+
+.plan-card .badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #d4a84b;
+  color: #06060a;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #d4a84b;
-  margin-bottom: 4px;
+  padding: 4px 16px;
+  border-radius: 20px;
 }
-.offer-card .price {
+.plan-card .plan-name {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 54px;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #b0b0bb;
+  margin-bottom: 6px;
+}
+.plan-card .plan-duration {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #555566;
+  margin-bottom: 12px;
+}
+.plan-card .plan-price {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 44px;
   font-weight: 400;
   color: #ffffff;
   line-height: 1;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
-.offer-card .price .cur { font-size: 16px; color: #888899; }
-.offer-card .label {
-  font-size: 12px;
-  color: #b0b0bb;
+.plan-card .plan-price .cur { font-size: 14px; color: #888899; }
+.plan-card .plan-sub {
+  font-size: 10px;
+  color: #d4a84b;
   margin-bottom: 16px;
 }
-.offer-card .desc {
-  font-size: 13px;
+.plan-card .plan-desc {
+  font-size: 11px;
   color: #888899;
   line-height: 1.7;
-  max-width: 480px;
-  margin: 0 auto 28px;
   font-weight: 300;
+  margin-bottom: 24px;
 }
-.offer-card .cta-btn {
+.plan-card .plan-btn {
   display: inline-block;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #06060a;
-  background: #d4a84b;
-  padding: 14px 44px;
+  color: #f0ece4;
+  background: transparent;
+  border: 1px solid #2a2a3a;
+  padding: 12px 28px;
   border-radius: 3px;
-  border: none;
   cursor: pointer;
   transition: all 0.3s;
   font-weight: 500;
   font-family: 'Inter', sans-serif;
+  width: 100%;
 }
-.offer-card .cta-btn:hover { background: #e8c062; transform: translateY(-1px); }
-.offer-card .cta-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.plan-card .plan-btn:hover { border-color: #d4a84b; color: #d4a84b; }
+.plan-card.featured .plan-btn {
+  background: #d4a84b;
+  color: #06060a;
+  border-color: #d4a84b;
+}
+.plan-card.featured .plan-btn:hover { background: #e8c062; border-color: #e8c062; transform: translateY(-1px); }
+.plan-card .plan-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* Comparison add-on */
+.compare-note {
+  text-align: center;
+  font-size: 10px;
+  color: #555566;
+  margin-bottom: 12px;
+  line-height: 1.8;
+}
+.compare-note .gold { color: #d4a84b; }
 
 /* Section titles */
 .section-title {
@@ -269,26 +324,55 @@ body {
     <div class="hero-overlay">
       <div class="brand">VIVIAN STUDIO</div>
       <h1>Private Chat</h1>
-      <div class="hero-tagline">one hour. your words, her voice.</div>
+      <div class="hero-tagline">from <strong>$99</strong> · your words, her voice · pick your depth</div>
     </div>
   </div>
 
   <!-- Intro -->
   <div class="intro">
-    <p>A private one-on-one voice session with Vivian. After payment, you receive her Telegram QR code — add her, schedule your time, and begin. Send text or voice messages. She replies in her own voice.</p>
+    <p>A private one-on-one voice session with Vivian. Choose a session length that fits your comfort &mdash; whether a quick chat or a deep conversation. After payment, you receive her Telegram QR code &mdash; add her, schedule your time, and begin.</p>
     <div class="divider-icon">✦</div>
   </div>
 
-  <!-- Offer -->
-  <div class="offer-card" id="offerSection">
-    <div class="time">One Hour · Private Session</div>
-    <div class="price">$499 <span class="cur">USD</span></div>
-    <div class="label">voice-to-voice · your space · mutual respect</div>
-    <p class="desc">
-      Pay once, receive Vivian's Telegram QR code by email. Add her, pick your time together, and when your hour begins — she's there, listening and responding in voice.
-    </p>
-    <div style="font-size:10px;color:#555566;margin-top:12px;">⚡ Also accepts USDT (TRC-20) · Pay with BTC or USDT via NowPayments</div>
-    <button class="cta-btn" id="bookBtn">Book Your Session →</button>
+  <!-- Pricing Grid -->
+  <div class="pricing-grid" id="pricingSection">
+
+    <!-- Entry -->
+    <div class="plan-card">
+      <div class="plan-name">Entry</div>
+      <div class="plan-duration">15 Minutes</div>
+      <div class="plan-price">$99 <span class="cur">USD</span></div>
+      <div class="plan-sub"></div>
+      <p class="plan-desc">A short, focused conversation. Perfect if you're curious &mdash; experience the connection, no pressure.</p>
+      <button class="plan-btn book-btn" data-product="private-chat-15" data-plan="Entry" data-price="99" data-time="15">Select →</button>
+    </div>
+
+    <!-- Standard — featured -->
+    <div class="plan-card featured">
+      <div class="badge">Most Popular</div>
+      <div class="plan-name">Standard</div>
+      <div class="plan-duration">30 Minutes</div>
+      <div class="plan-price">$199 <span class="cur">USD</span></div>
+      <div class="plan-sub">★ best value</div>
+      <p class="plan-desc">The sweet spot. Enough time to move past small talk and into a real, meaningful conversation.</p>
+      <button class="plan-btn book-btn" data-product="private-chat-30" data-plan="Standard" data-price="199" data-time="30">Select →</button>
+    </div>
+
+    <!-- Premium -->
+    <div class="plan-card">
+      <div class="plan-name">Premium</div>
+      <div class="plan-duration">60 Minutes</div>
+      <div class="plan-price">$499 <span class="cur">USD</span></div>
+      <div class="plan-sub">full experience</div>
+      <p class="plan-desc">An uninterrupted hour. The deepest connection &mdash; for those who truly value being heard and understood.</p>
+      <button class="plan-btn book-btn" data-product="private-chat-60" data-plan="Premium" data-price="499" data-time="60">Select →</button>
+    </div>
+
+  </div>
+
+  <div class="compare-note">
+    ⚡ All sessions include voice replies · Pay with BTC or USDT (TRC-20) via NowPayments<br>
+    ⚡ Want a longer arrangement? <span class="gold">Book any session first</span>, then discuss directly with Vivian.
   </div>
 
   <!-- Status overlay (hidden initially) -->
@@ -306,8 +390,8 @@ body {
   <div class="steps">
     <div class="step-card">
       <div class="num">01</div>
-      <div class="title">Book & Pay</div>
-      <div class="desc">Secure your session. Vivian's Telegram QR code will be emailed to you.</div>
+      <div class="title">Choose & Pay</div>
+      <div class="desc">Pick your session length. Vivian's Telegram QR code will be emailed to you after payment.</div>
     </div>
     <div class="step-card">
       <div class="num">02</div>
@@ -316,13 +400,13 @@ body {
     </div>
     <div class="step-card">
       <div class="num">03</div>
-      <div class="title">Your Hour</div>
-      <div class="desc">Send text or voice messages. Vivian replies with her voice.</div>
+      <div class="title">Your Session</div>
+      <div class="desc">Send text or voice messages. Vivian replies with her voice — a real conversation, at your pace.</div>
     </div>
     <div class="step-card">
       <div class="num">04</div>
       <div class="title">Beyond</div>
-      <div class="desc">Good connection? Discuss longer arrangements directly with Vivian.</div>
+      <div class="desc">Good connection? Discuss longer arrangements directly with Vivian after your session.</div>
     </div>
   </div>
 
@@ -359,25 +443,29 @@ body {
   <h2 class="section-title">Questions <span class="gold">?</span></h2>
   <div class="faq">
     <div class="faq-item">
+      <div class="q">Which session should I start with?</div>
+      <div class="a">If you're new, the $99 Entry session is a risk-free way to experience the connection. Many first-timers upgrade to Standard or Premium immediately after.</div>
+    </div>
+    <div class="faq-item">
       <div class="q">How do I get Vivian's Telegram?</div>
       <div class="a">After payment is confirmed, a QR code is sent to your email. Scan it to add Vivian directly and schedule your session.</div>
     </div>
     <div class="faq-item">
       <div class="q">How does the session actually work?</div>
-      <div class="a">During your reserved hour, you send messages however you like (text or voice). Vivian listens and replies with voice messages — a real conversation, at your pace.</div>
+      <div class="a">During your reserved time, you send messages however you like (text or voice). Vivian listens and replies with voice messages — a real conversation, at your pace.</div>
     </div>
     <div class="faq-item">
       <div class="q">What can we talk about?</div>
       <div class="a">Anything within legal and respectful bounds. Share your stories, ask questions — this is your space. Vivian may end sessions that breach mutual respect or legal limits.</div>
     </div>
     <div class="faq-item">
-      <div class="q">Can we continue beyond one hour?</div>
-      <div class="a">If both sides feel a connection, longer arrangements can be discussed directly with Vivian after the session.</div>
+      <div class="q">Can I upgrade to a longer session later?</div>
+      <div class="a">Absolutely. Many clients start with Entry and upgrade. Book a longer session anytime through the same page.</div>
     </div>
   </div>
 
   <div class="note">
-    <strong>VIVIAN STUDIO</strong> · Private Archive · $499 USD · BTC / USDT (TRC-20) via NowPayments · Telegram delivery · No returns
+    <strong>VIVIAN STUDIO</strong> · Private Archive · $99 / $199 / $499 USD · BTC & USDT (TRC-20) via NowPayments · Telegram delivery · No returns
   </div>
 
 </div>
@@ -385,57 +473,64 @@ body {
 <script>
 const API_URL = 'https://vivid-purchase.jianfeng-li1008.workers.dev';
 
-document.getElementById('bookBtn').addEventListener('click', async function(e) {
-  const btn = this;
-  btn.disabled = true;
-  btn.textContent = 'Processing...';
+// Bind each plan button
+document.querySelectorAll('.book-btn').forEach(btn => {
+  btn.addEventListener('click', async function(e) {
+    const product = this.dataset.product;
+    const planName = this.dataset.plan;
+    const planPrice = this.dataset.price;
+    const planTime = this.dataset.time;
 
-  const email = prompt('Enter your email address to receive Vivian\'s Telegram QR code:');
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    alert('Please enter a valid email address.');
-    btn.disabled = false;
-    btn.textContent = 'Book Your Session →';
-    return;
-  }
+    btn.disabled = true;
+    btn.textContent = 'Processing...';
 
-  // Show loading state
-  document.getElementById('offerSection').style.display = 'none';
-  const overlay = document.getElementById('statusOverlay');
-  overlay.classList.add('visible');
-  document.getElementById('loadingSpinner').style.display = 'block';
-  document.getElementById('statusIcon').style.display = 'none';
-  document.getElementById('statusTitle').textContent = 'Creating your invoice...';
-  document.getElementById('statusMsg').textContent = 'Please wait while we set up your session.';
+    const email = prompt(`Enter your email to receive Vivian's Telegram QR code:\n\n${planName} · ${planTime} min · $${planPrice}`);
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert('Please enter a valid email address.');
+      btn.disabled = false;
+      btn.textContent = 'Select →';
+      return;
+    }
 
-  try {
-    const resp = await fetch(API_URL + '/api/create-order', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: email,
-        product: 'private-chat'
-      })
-    });
+    // Show loading state
+    document.getElementById('pricingSection').style.display = 'none';
+    const overlay = document.getElementById('statusOverlay');
+    overlay.classList.add('visible');
+    document.getElementById('loadingSpinner').style.display = 'block';
+    document.getElementById('statusIcon').style.display = 'none';
+    document.getElementById('statusTitle').textContent = 'Creating your invoice...';
+    document.getElementById('statusMsg').textContent = `Preparing your ${planName} (${planTime} min) session.`;
 
-    const data = await resp.json();
-    if (!data.success) throw new Error(data.error || 'Failed to create order');
+    try {
+      const resp = await fetch(API_URL + '/api/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          product: product
+        })
+      });
 
-    // Redirect to NowPayments invoice
-    document.getElementById('statusTitle').textContent = 'Redirecting to payment...';
-    document.getElementById('statusMsg').textContent = 'You will be redirected to secure payment via NowPayments (BTC / USDT TRC-20).';
-    window.location.href = data.invoice_url;
-  } catch (err) {
-    overlay.classList.remove('visible');
-    document.getElementById('offerSection').style.display = 'block';
-    alert('Error: ' + err.message + '\n\nPlease contact us on Telegram @VividArtistry_bot');
-    btn.disabled = false;
-    btn.textContent = 'Book Your Session →';
-  }
+      const data = await resp.json();
+      if (!data.success) throw new Error(data.error || 'Failed to create order');
+
+      // Redirect to NowPayments invoice
+      document.getElementById('statusTitle').textContent = 'Redirecting to payment...';
+      document.getElementById('statusMsg').textContent = 'You will be redirected to secure payment via NowPayments (BTC / USDT TRC-20).';
+      window.location.href = data.invoice_url;
+    } catch (err) {
+      overlay.classList.remove('visible');
+      document.getElementById('pricingSection').style.display = 'grid';
+      alert('Error: ' + err.message + '\n\nPlease contact us on Telegram @VividArtistry_bot');
+      btn.disabled = false;
+      btn.textContent = 'Select →';
+    }
+  });
 });
 
 // Show success message if redirected back
 if (window.location.search.includes('success=true')) {
-  document.getElementById('offerSection').style.display = 'none';
+  document.getElementById('pricingSection').style.display = 'none';
   const overlay = document.getElementById('statusOverlay');
   overlay.classList.add('visible');
   document.getElementById('loadingSpinner').style.display = 'none';
