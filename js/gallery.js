@@ -92,52 +92,52 @@ const editionData = [
   },
   {
     id: "vol19",
-    titles: {"zh": "欲火，发燃的时刻", "en": "Midnight Aurelian Echoes", "ja": "蜜の誘惑", "ko": "\uc544\ud0a4\ud14d\ucc98 \uac00\uc774\ub4dc\ub77c\uc778"},
+    titles: {"zh": "欲火，发燃的时刻", "en": "Gilded Midnight Muse", "ja": "蜜の誘惑", "ko": "\uc544\ud0a4\ud14d\ucc98 \uac00\uc774\ub4dc\ub77c\uc778"},
     subtitle: {"zh": "VOL19 · 正式版", "en": "VOL19 · Edition", "ja": "VOL19 · 正式版", "ko": "VOL19 · 정식판"}
   },
   {
     id: "vol20",
-    titles: {"zh": "禁忌之吻", "en": "Crimson Echoes: Vol. 20", "ja": "宵闇の誘惑", "ko": "V20 \uc2dc\uc2a4\ud15c \uac00\uc774\ub4dc"},
+    titles: {"zh": "禁忌之吻", "en": "Gilded Nocturne", "ja": "宵闇の誘惑", "ko": "V20 \uc2dc\uc2a4\ud15c \uac00\uc774\ub4dc"},
     subtitle: {"zh": "VOL20 · 正式版", "en": "VOL20 · Edition", "ja": "VOL20 · 正式版", "ko": "VOL20 · 정식판"}
   },
   {
     id: "vol21",
-    titles: {"zh": "禁区边缘的诱惑", "en": "Crimson Gold Nocturne", "ja": "官能の輪郭", "ko": "\uc7ac\uc815\uc758\ub41c \uc2dc\uc2a4\ud15c"},
+    titles: {"zh": "禁区边缘的诱惑", "en": "Gilded Shadows of Desire", "ja": "官能の輪郭", "ko": "\uc7ac\uc815\uc758\ub41c \uc2dc\uc2a4\ud15c"},
     subtitle: {"zh": "VOL21 · 正式版", "en": "VOL21 · Edition", "ja": "VOL21 · 正式版", "ko": "VOL21 · 정식판"}
   },
   {
     id: "vol22",
-    titles: {"zh": "秘境回眸", "en": "Midnight Noir V22", "ja": "残された熱よ、きらめく肌", "ko": "\ubaa8\ub4c8\ud615 \uc0ac\uace0\uc758 \uc7ac\uad6c\uc131"},
+    titles: {"zh": "秘境回眸", "en": "Velvet Shadows Unveiled", "ja": "残された熱よ、きらめく肌", "ko": "\ubaa8\ub4c8\ud615 \uc0ac\uace0\uc758 \uc7ac\uad6c\uc131"},
     subtitle: {"zh": "VOL22 · 正式版", "en": "VOL22 · Edition", "ja": "VOL22 · 正式版", "ko": "VOL22 · 정식판"}
   },
   {
     id: "vol23",
-    titles: {"zh": "赤焰诱惑场域", "en": "Velvet Night Echoes", "ja": "蜜月逃避行", "ko": "\uad6c\uc870\ud654\ub41c \uba85\ub8cc\ud568"},
+    titles: {"zh": "赤焰诱惑场域", "en": "Velvet Obsession Noir", "ja": "蜜月逃避行", "ko": "\uad6c\uc870\ud654\ub41c \uba85\ub8cc\ud568"},
     subtitle: {"zh": "VOL23 · 正式版", "en": "VOL23 · Edition", "ja": "VOL23 · 正式版", "ko": "VOL23 · 정식판"}
   },
   {
     id: "vol24",
-    titles: {"zh": "心动猎物手册", "en": "Velvet Nocturnes Vol. 24", "ja": "禁断の宵、秘密の温度", "ko": "\uc2dc\uc2a4\ud15c \uba85\ub8cc\ud654 V24"},
+    titles: {"zh": "心动猎物手册", "en": "Gilded Shadows", "ja": "禁断の宵、秘密の温度", "ko": "\uc2dc\uc2a4\ud15c \uba85\ub8cc\ud654 V24"},
     subtitle: {"zh": "VOL24 · 正式版", "en": "VOL24 · Edition", "ja": "VOL24 · 正式版", "ko": "VOL24 · 정식판"}
   },
   {
     id: "vol25",
-    titles: {"zh": "无声的禁忌游戏", "en": "Velvet Dusk Noir", "ja": "宵闇の蜜月体温", "ko": "\ucd5c\uc801 \uad6c\uc870\uccb4\uacc4"},
+    titles: {"zh": "无声的禁忌游戏", "en": "Gilded Nocturne", "ja": "宵闇の蜜月体温", "ko": "\ucd5c\uc801 \uad6c\uc870\uccb4\uacc4"},
     subtitle: {"zh": "VOL25 · 正式版", "en": "VOL25 · Edition", "ja": "VOL25 · 正式版", "ko": "VOL25 · 정식판"}
   },
   {
     id: "vol26",
-    titles: {"zh": "欲望的邀请函", "en": "Crimson Depths Vol. 26", "ja": "夜明けの熱情", "ko": "\uc2dc\uc2a4\ud15c \uc815\uc758 V26"},
+    titles: {"zh": "欲望的邀请函", "en": "Gilded Noir", "ja": "夜明けの熱情", "ko": "\uc2dc\uc2a4\ud15c \uc815\uc758 V26"},
     subtitle: {"zh": "VOL26 · 正式版", "en": "VOL26 · Edition", "ja": "VOL26 · 正式版", "ko": "VOL26 · 정식판"}
   },
   {
     id: "vol27",
-    titles: {"zh": "迷离禁区", "en": "Velvet Eclipse, Vol 27", "ja": "蜜月後の秘密", "ko": "\ubcfc\ub968 27: \uc791\ub3d9 \ubc29\uc2dd"},
+    titles: {"zh": "迷离禁区", "en": "Gilded Shadow Nocturne", "ja": "蜜月後の秘密", "ko": "\ubcfc\ub968 27: \uc791\ub3d9 \ubc29\uc2dd"},
     subtitle: {"zh": "VOL27 · 正式版", "en": "VOL27 · Edition", "ja": "VOL27 · 正式版", "ko": "VOL27 · 정식판"}
   },
   {
     id: "vol28",
-    titles: {"zh": "罪欲入梦", "en": "Velvet Depths, Gold Hour", "ja": "夜の螺旋", "ko": "[Vol.28] \ud575\uc2ec \uc544\uce74\uc774\ube0c"},
+    titles: {"zh": "罪欲入梦", "en": "Gilded Shadows Lust", "ja": "夜の螺旋", "ko": "[Vol.28] \ud575\uc2ec \uc544\uce74\uc774\ube0c"},
     subtitle: {"zh": "VOL28 · 正式版", "en": "VOL28 · Edition", "ja": "VOL28 · 正式版", "ko": "VOL28 · 정식판"}
   },
 
