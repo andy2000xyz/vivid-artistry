@@ -1,23 +1,28 @@
 /* ─────────────────────────────────────────────────────────────
    VIVIAN STUDIO · 结算入口（全站唯一配置点）
    ─────────────────────────────────────────────────────────────
-   站内所有「购买 / 开通 / 预约」按钮都走 Patreon 结算。
+   站内所有「购买 / 开通」按钮都走 Patreon 结算。
    不再有任何加密货币支付代码。
 
-   如果你在 Patreon 后台为某一档建好了独立邀请链接，例如：
-     https://www.patreon.com/c/VividArtistry/join?tier_id=1234567
-   只改下面 LINKS 里对应的那一行即可，全站立即生效，不需要动任何页面。
+   ┌─ 更换档位直链（推荐）─────────────────────────────────────┐
+   │ 1. 打开 https://www.patreon.com/c/vividartistry/membership │
+   │ 2. 点 The Archive 那档的 Join，复制地址栏里的 tier_id      │
+   │ 3. 把下面 archive 一行换成 /join?tier_id=xxxxxxx           │
+   └──────────────────────────────────────────────────────────┘
+   改这里，全站立即生效，不需要动任何页面。
 
    HTML 用法：
-     <a href="https://www.patreon.com/c/VividArtistry" data-pat="archive">…</a>
+     <a href="https://www.patreon.com/c/vividartistry/membership" data-pat="archive">…</a>
    data-pat 取值：home | archive | allaccess | privatechat | telegram
    ───────────────────────────────────────────────────────────── */
 (function () {
+  var MEMBERSHIP = 'https://www.patreon.com/c/vividartistry/membership';
+
   var LINKS = {
-    home:        'https://www.patreon.com/c/VividArtistry',
-    archive:     'https://www.patreon.com/c/VividArtistry',
-    allaccess:   'https://www.patreon.com/c/VividArtistry',
-    privatechat: 'https://www.patreon.com/c/VividArtistry',
+    home:        'https://www.patreon.com/c/vividartistry',
+    archive:     MEMBERSHIP,   // ← The Archive 档（站点主 CTA 指向这里）
+    allaccess:   MEMBERSHIP,   // ← $99.99 档，拿到 tier_id 后可单独指向
+    privatechat: MEMBERSHIP,
     telegram:    'https://t.me/VividArtistry_bot'
   };
 
