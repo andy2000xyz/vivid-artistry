@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Purchase — VIVIAN STUDIO · Private Archive</title>
+<title>The Archive — VIVIAN STUDIO</title>
+<meta name="description" content="28 photo books by VIVIAN STUDIO. One membership. Instant access, billed securely on Patreon.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -16,13 +17,10 @@ body {
   color: #f0ece4;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
-  -webkit-touch-callout: none;
 }
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 48px 24px 40px;
-}
+img { -webkit-user-select: none; user-select: none; }
+.container { max-width: 860px; margin: 0 auto; padding: 48px 24px 40px; }
+
 .back {
   display: inline-block;
   font-family: 'Cormorant Garamond', Georgia, serif;
@@ -44,160 +42,54 @@ body {
 }
 h1 {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 400;
   color: #ffffff;
   margin-bottom: 8px;
 }
-.subtitle {
-  font-size: 13px;
-  color: #888899;
-  margin-bottom: 40px;
-}
-.divider {
-  width: 40px;
-  height: 1px;
-  background: #2a2a3a;
-  margin-bottom: 40px;
-}
+.subtitle { font-size: 13px; color: #888899; margin-bottom: 40px; }
+.divider { width: 40px; height: 1px; background: #2a2a3a; margin-bottom: 40px; }
 
-/* Edition grid */
-.edition-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 16px;
-  margin-bottom: 48px;
-}
-.edition-card {
-  background: #0e0e14;
-  border: 1px solid #1e1e2e;
-  border-radius: 6px;
-  overflow: hidden;
-  transition: all 0.3s;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  cursor: pointer;
-}
-.edition-card:hover {
-  border-color: #d4a84b;
-  transform: translateY(-2px);
-}
-.edition-card .cover {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  display: block;
-  background: #12121a;
-}
-.edition-card .info {
-  padding: 12px 14px 14px;
-}
-.edition-card .ed-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 15px;
-  font-weight: 500;
-  color: #ffffff;
-  margin-bottom: 2px;
-}
-.edition-card .ed-vol {
-  font-size: 10px;
-  color: #d4a84b;
-  letter-spacing: 0.1em;
-  margin-bottom: 4px;
-}
-.edition-card .ed-price {
-  font-size: 13px;
-  color: #f0ece4;
-}
-
-.edition-card.active {
-  border-color: #d4a84b;
-  box-shadow: 0 0 0 1px #d4a84b;
-}
-
-/* Checkout form */
-.checkout-section {
-  background: #0e0e14;
-  border: 1px solid #2a2a3a;
-  border-radius: 8px;
+/* ── Primary CTA ── */
+.cta-box {
+  background: linear-gradient(180deg, #12120f, #0b0b11);
+  border: 1px solid rgba(212,168,75,0.35);
+  border-radius: 10px;
   padding: 40px 32px;
-  margin-bottom: 48px;
+  text-align: center;
+  margin-bottom: 44px;
+  position: relative;
+  overflow: hidden;
 }
-.checkout-section h2 {
+.cta-box h2 {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 400;
   color: #ffffff;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
-.checkout-section .checkout-sub {
+.cta-box p { font-size: 13px; color: #a0a0ad; line-height: 1.75; margin-bottom: 26px; }
+.cta-btn {
+  display: inline-block;
   font-size: 12px;
-  color: #888899;
-  margin-bottom: 28px;
-}
-.form-group {
-  margin-bottom: 20px;
-}
-.form-group label {
-  display: block;
-  font-size: 11px;
-  color: #888899;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
-.form-group input,
-.form-group select {
-  width: 100%;
-  background: #06060a;
-  border: 1px solid #2a2a3a;
-  border-radius: 4px;
-  padding: 12px 16px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: #f0ece4;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.form-group input:focus,
-.form-group select:focus {
-  border-color: #d4a84b;
-}
-.form-group select option {
-  background: #0e0e14;
-  color: #f0ece4;
-}
-.submit-btn {
-  width: 100%;
-  font-size: 12px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #06060a;
   background: #d4a84b;
-  padding: 14px 36px;
+  padding: 16px 44px;
   border-radius: 3px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-family: 'Inter', sans-serif;
+  text-decoration: none;
   font-weight: 500;
+  transition: all 0.3s;
 }
-.submit-btn:hover {
-  background: #e8c062;
-  transform: translateY(-1px);
-}
-.submit-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none;
-}
+.cta-btn:hover { background: #e8c062; transform: translateY(-1px); }
+.cta-fine { font-size: 10px; color: #666677; margin-top: 16px; letter-spacing: 0.02em; }
 
-/* Step indicator */
+/* ── Steps ── */
 .steps {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 16px;
   margin-bottom: 48px;
 }
 .step {
@@ -209,321 +101,198 @@ h1 {
 }
 .step-num {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 28px;
+  font-size: 26px;
   color: #d4a84b;
   margin-bottom: 8px;
 }
-.step-title {
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-.step-desc {
-  font-size: 11px;
-  color: #888899;
-  line-height: 1.6;
-}
+.step-title { font-size: 12px; font-weight: 500; margin-bottom: 6px; }
+.step-desc { font-size: 11px; color: #888899; line-height: 1.6; }
 
-/* Loading / success / error states */
-.status-overlay {
-  display: none;
-  text-align: center;
-  padding: 60px 32px;
-}
-.status-overlay.visible { display: block; }
-.status-overlay .icon { font-size: 48px; margin-bottom: 16px; }
-.status-overlay h3 {
+/* ── Includes ── */
+.section-h {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 24px;
+  font-size: 19px;
   font-weight: 400;
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 }
-.status-overlay p {
-  font-size: 13px;
-  color: #888899;
-  margin-bottom: 24px;
-  line-height: 1.7;
+.includes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 48px;
 }
+.include {
+  background: #0e0e14;
+  border: 1px solid #1e1e2e;
+  border-radius: 6px;
+  padding: 20px 22px;
+}
+.include .t { font-size: 12px; font-weight: 500; color: #f0ece4; margin-bottom: 6px; }
+.include .d { font-size: 11px; color: #888899; line-height: 1.65; }
 
-.spinner {
-  width: 40px;
-  height: 40px;
-  border: 3px solid #2a2a3a;
-  border-top: 3px solid #d4a84b;
-  border-radius: 50%;
-  margin: 0 auto 24px;
-  animation: spin 1s linear infinite;
+/* ── Edition grid ── */
+.edition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 16px;
+  margin-bottom: 44px;
 }
-@keyframes spin { to { transform: rotate(360deg); } }
+.edition-card {
+  background: #0e0e14;
+  border: 1px solid #1e1e2e;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.3s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.edition-card:hover { border-color: #d4a84b; transform: translateY(-2px); }
+.edition-card .cover {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  background: #12121a;
+}
+.edition-card .info { padding: 12px 14px 14px; }
+.edition-card .ed-vol {
+  font-size: 10px;
+  color: #d4a84b;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.edition-card .ed-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.25;
+}
 
 .note {
   font-size: 11px;
   color: #666677;
-  line-height: 1.8;
+  line-height: 1.85;
   padding: 20px;
   border: 1px solid #1e1e2e;
   border-radius: 4px;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
 }
 .note strong { color: #888899; }
+.note a { color: #d4a84b; text-decoration: none; }
 
-.footer {
-  font-size: 9px;
-  color: #444455;
-  letter-spacing: 0.1em;
-  text-align: center;
-}
-
-#checkout-form { display: block; }
-#checkout-form.hidden { display: none; }
+.footer { font-size: 9px; color: #444455; letter-spacing: 0.1em; text-align: center; }
 
 @media (max-width: 640px) {
   .container { padding: 32px 16px 24px; }
-  h1 { font-size: 26px; }
+  h1 { font-size: 27px; }
   .steps { grid-template-columns: 1fr; }
+  .includes { grid-template-columns: 1fr; }
   .edition-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .checkout-section { padding: 28px 20px; }
+  .cta-box { padding: 32px 20px; }
+  .cta-btn { width: 100%; padding: 15px 20px; }
 }
 </style>
-<style>/* image-protect */img{pointer-events:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}</style></head>
+</head>
 <body>
 <div class="container">
   <a href="/" class="back">← Home</a>
   <div class="brand">VIVIAN STUDIO</div>
-  <h1>Private Archive</h1>
-  <p class="subtitle">Choose an edition to unlock the full photo book</p>
+  <h1>The Archive</h1>
+  <p class="subtitle">28 photo books · one membership</p>
   <div class="divider"></div>
+
+  <!-- Primary CTA -->
+  <div class="cta-box">
+    <h2>Unlock the Full Archive</h2>
+    <p>Every volume, complete and uncropped, in full resolution.<br>New volumes added as they're released — your access grows with the archive.</p>
+    <a class="cta-btn" href="https://www.patreon.com/c/VividArtistry" data-pat="archive">Unlock on Patreon →</a>
+    <div class="cta-fine">Secure checkout on Patreon · Card, Apple Pay &amp; PayPal · Cancel anytime</div>
+  </div>
 
   <!-- How it works -->
   <div class="steps">
     <div class="step">
       <div class="step-num">01</div>
-      <div class="step-title">Choose</div>
-      <div class="step-desc">Select the edition and enter your email</div>
+      <div class="step-title">Choose a membership</div>
+      <div class="step-desc">Pick the tier that matches how much of the archive you want</div>
     </div>
     <div class="step">
       <div class="step-num">02</div>
-      <div class="step-title">Pay with USDT</div>
-      <div class="step-desc">Complete payment on the secure NowPayments page</div>
+      <div class="step-title">Checkout on Patreon</div>
+      <div class="step-desc">You're billed by Patreon in USD — no account juggling</div>
     </div>
     <div class="step">
       <div class="step-num">03</div>
-      <div class="step-title">Receive</div>
-      <div class="step-desc">PDF download link is sent to your email automatically</div>
+      <div class="step-title">Access instantly</div>
+      <div class="step-desc">Members-only posts unlock the moment payment clears</div>
+    </div>
+  </div>
+
+  <!-- What's included -->
+  <h2 class="section-h">What Membership Includes</h2>
+  <div class="includes">
+    <div class="include">
+      <div class="t">All 28 volumes</div>
+      <div class="d">The complete archive, from Vol.1 to Vol.28 — plus every future volume released while you're subscribed.</div>
+    </div>
+    <div class="include">
+      <div class="t">Full-resolution files</div>
+      <div class="d">Not the watermarked previews — the real thing, delivered through members-only posts.</div>
+    </div>
+    <div class="include">
+      <div class="t">New volumes as released</div>
+      <div class="d">Every future volume is included while your membership is active — nothing to re-buy.</div>
+    </div>
+    <div class="include">
+      <div class="t">Cancel anytime</div>
+      <div class="d">Billing is handled entirely by Patreon. Manage or cancel from your own Patreon account.</div>
     </div>
   </div>
 
   <!-- Edition grid -->
+  <h2 class="section-h">Browse the Volumes</h2>
   <div class="edition-grid" id="editionGrid"></div>
 
-  <!-- Checkout form -->
-  <div style="text-align:center;padding:20px 0 40px;border-top:1px solid #1e1e2e;margin-top:40px;">
-  <p style="font-size:11px;color:#888899;margin-bottom:12px;">🎂 NEW</p>
-  <a href="/birthday-card/" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;color:#d4a84b;text-decoration:none;transition:color 0.2s;">Personalized Birthday Card from Vivian →</a>
-  <p style="font-size:12px;color:#666677;margin-top:8px;">.99 USDT · Choose your template · Delivered to your email</p>
-</div><div class="checkout-section" id="checkout">
-    <h2>Checkout</h2>
-    <p class="checkout-sub" id="checkoutSub">Select an edition above to begin</p>
-
-    <form id="checkout-form">
-      <div class="form-group">
-        <label for="email">Your Email Address</label>
-        <input type="email" id="email" placeholder="you@example.com" required>
-      </div>
-      <div class="form-group">
-        <label for="editionSelect">Edition</label>
-        <select id="editionSelect"></select>
-      </div>
-      <button type="submit" class="submit-btn" id="payBtn">Pay $10 USDT →</button>
-    </form>
-
-    <!-- Loading state -->
-    <div class="status-overlay" id="loadingState">
-      <div class="spinner"></div>
-      <h3>Preparing your order...</h3>
-      <p>Redirecting to secure payment page.</p>
-    </div>
-
-    <!-- Success state -->
-    <div class="status-overlay" id="successState">
-      <div class="icon">✓</div>
-      <h3>Order Created!</h3>
-      <p id="successMsg">You will be redirected to the payment page shortly.</p>
-      <p style="font-size:11px;color:#666677;">After payment, the download link will be sent to your email within minutes.</p>
-    </div>
-
-    <!-- Error state -->
-    <div class="status-overlay" id="errorState">
-      <div class="icon">✕</div>
-      <h3>Something went wrong</h3>
-      <p id="errorMsg">Please try again or contact us on Telegram.</p>
-      <button class="submit-btn" onclick="resetForm()">Try Again</button>
-    </div>
-  </div>
-
   <div class="note">
-    <strong>Secure payment powered by NowPayments.</strong> Pay with USDT (TRC-20).
-    After successful payment, the download link is sent to your email within minutes.
-    Need help? <a href="https://t.me/VividArtistry_bot" style="color:#d4a84b;text-decoration:none;">Contact us on Telegram</a>.
+    <strong>How payment works:</strong> all purchases are processed by Patreon in USD.
+    You'll see the exact price and billing terms on Patreon before you confirm — this site never handles card details.
+    Questions? <a href="https://t.me/VividArtistry_bot" data-pat="telegram">Message us on Telegram</a>.
   </div>
 
   <div class="footer">© 2026 VIVIAN STUDIO · Private Archive</div>
 </div>
 
 <script src="../js/gallery.js"></script>
+<script src="../js/patreon.js"></script>
 <script>
-// Config — set these after deploying the Worker
-const WORKER_URL = 'https://vivid-purchase.jianfeng-li1008.workers.dev';
+(function () {
+  var grid = document.getElementById('editionGrid');
+  if (!grid || typeof editionData === 'undefined') return;
 
-// ── 防下载保护 ──
-document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('dragstart', e => e.preventDefault());
-document.addEventListener('copy', e => e.preventDefault());
-document.addEventListener('keydown', e => {
-  if (e.key === 'F12' ||
-      (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
-      (e.ctrlKey && e.key === 'u') ||
-      (e.ctrlKey && e.key === 's') ||
-      (e.metaKey && e.key === 's')) {
-    e.preventDefault();
-  }
-});
+  editionData.forEach(function (ed) {
+    var a = document.createElement('a');
+    a.className = 'edition-card';
+    a.href = '../editions/' + ed.id + '/en.html';
+    a.innerHTML =
+      '<img class="cover" src="../editions/' + ed.id + '/cover_thumb.jpg"' +
+        ' alt="' + ed.titles.en + '" loading="lazy">' +
+      '<div class="info">' +
+        '<div class="ed-vol">VOL' + ed.id.replace('vol', '') + '</div>' +
+        '<div class="ed-title">' + ed.titles.en + '</div>' +
+      '</div>';
+    grid.appendChild(a);
+  });
 
-// Render edition grid + populate select
-const grid = document.getElementById('editionGrid');
-const select = document.getElementById('editionSelect');
-const checkoutSub = document.getElementById('checkoutSub');
-
-editionData.forEach(function(ed) {
-  const cover = '../editions/' + ed.id + '/cover_thumb.jpg';
-
-  // Card
-  const card = document.createElement('a');
-  card.className = 'edition-card';
-  card.href = '#checkout';
-  card.dataset.edition = ed.id;
-  card.dataset.title = ed.titles.en;
-  card.onclick = function(e) {
-    e.preventDefault();
-    selectEdition(ed.id);
-  };
-  card.innerHTML =
-    '<img class="cover" src="' + cover + '" alt="' + ed.titles.en + '" loading="lazy">' +
-    '<div class="info">' +
-      '<div class="ed-vol">VOL' + ed.id.replace('vol','') + '</div>' +
-      '<div class="ed-title">' + ed.titles.en + '</div>' +
-      '<div class="ed-price">$10 USDT</div>' +
-    '</div>';
-  grid.appendChild(card);
-
-  // Select option
-  const opt = document.createElement('option');
-  opt.value = ed.id;
-  opt.textContent = 'VOL' + ed.id.replace('vol','') + ' — ' + ed.titles.en + ' ($10 USDT)';
-  select.appendChild(opt);
-});
-
-let selectedEdition = null;
-
-function selectEdition(edId) {
-  selectedEdition = edId;
-  select.value = edId;
-  var edData = editionData.find(function(e) { return e.id === edId; });
-  var title = edData ? edData.titles.en : edId;
-  checkoutSub.textContent = 'VOL' + edId.replace('vol','') + ' — ' + title + ' · $10 USDT';
-
-  // Highlight
-  document.querySelectorAll('.edition-card').forEach(function(c) { c.classList.remove('active'); });
-  document.querySelector('[data-edition="' + edId + '"]').classList.add('active');
-  document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
-}
-
-select.addEventListener('change', function() {
-  if (this.value) selectEdition(this.value);
-});
-
-// Form submission
-const form = document.getElementById('checkout-form');
-const loadingState = document.getElementById('loadingState');
-const successState = document.getElementById('successState');
-const errorState = document.getElementById('errorState');
-const payBtn = document.getElementById('payBtn');
-const successMsg = document.getElementById('successMsg');
-const errorMsg = document.getElementById('errorMsg');
-
-function showState(state) {
-  form.classList.toggle('hidden', state !== 'form');
-  loadingState.classList.toggle('visible', state === 'loading');
-  successState.classList.toggle('visible', state === 'success');
-  errorState.classList.toggle('visible', state === 'error');
-}
-
-function resetForm() {
-  showState('form');
-}
-
-form.addEventListener('submit', async function(e) {
-  e.preventDefault();
-  const email = document.getElementById('email').value.trim();
-  const edition = select.value;
-
-  if (!email || !edition) {
-    errorMsg.textContent = 'Please select an edition and enter your email.';
-    showState('error');
-    return;
-  }
-
-  showState('loading');
-
-  try {
-    const resp = await fetch(WORKER_URL + '/api/create-order', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, edition: edition })
-    });
-
-    const data = await resp.json();
-
-    if (!resp.ok || !data.invoice_url) {
-      throw new Error(data.error || 'Failed to create order');
-    }
-
-    successMsg.innerHTML = 'Order #' + data.order_id + ' created.<br>Redirecting to NowPayments...';
-    showState('success');
-
-    // Redirect to NowPayments payment page
-    window.location.href = data.invoice_url;
-
-  } catch (err) {
-    errorMsg.textContent = err.message || 'Network error. Please try again.';
-    showState('error');
-  }
-});
-</script>
-<!-- img-protect-js --><script>
-(function(){
-function p(){
-document.querySelectorAll('.page img,.edition-card img').forEach(function(i){
-if(i._rp)return;
-var s=i.currentSrc||i.src,w=i.naturalWidth,h=i.naturalHeight;
-if(!s||!w||!h)return;
-i._rp=1;
-var d=document.createElement('div');
-d.style.backgroundImage='url("'+s.replace(/"/g,'\\"')+'")';
-d.style.backgroundSize='contain';
-d.style.backgroundPosition='center';
-d.style.backgroundRepeat='no-repeat';
-d.style.width='100%';
-d.style.display='block';
-d.style.aspectRatio=w+'/'+h;
-d.style.pointerEvents='none';
-d.style.userSelect='none';
-d.style.webkitTouchCallout='none';
-i.parentNode.replaceChild(d,i)
-})}
-document.addEventListener('DOMContentLoaded',p);
-window.addEventListener('load',p);
+  // 轻度防下载（不影响正常浏览）
+  document.addEventListener('contextmenu', function (e) {
+    if (e.target.tagName === 'IMG') e.preventDefault();
+  });
+  document.addEventListener('dragstart', function (e) {
+    if (e.target.tagName === 'IMG') e.preventDefault();
+  });
 })();
 </script>
 </body>
